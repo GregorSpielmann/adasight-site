@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: adasight/adasight-site
+  branch: main
+  base_url: https://adasight.tech
+
+media_folder: public/images
+public_folder: /images
+
+# ─── Collections ──────────────────────────────────────────────────────────────
+collections:
+  # Blog Posts
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    preview_path: /blog/{{slug}}/
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: SEO Title (max 60 chars), name: seo_title, widget: string, required: false }
+      - { label: Description (meta, max 155 chars), name: description, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Author, name: author, widget: select, default: Gregor Spielmann,
+          options: [Gregor Spielmann, Finn Müller, Zain Ahmed, Dmitry Petrov, Adasight Team] }
+      - { label: Category, name: category, widget: select, default: Analytics,
+          options: [Analytics, Experimentation, Strategy, How-To, Tool Comparison, SaaS Analytics] }
+      - { label: Hero Emoji, name: hero_emoji, widget: string, default: "📊" }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  # Case Studies
+  - name: case-studies
+    label: Case Studies
+    label_singular: Case Study
+    folder: src/content/case-studies
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Client Name, name: client, widget: string }
+      - { label: Industry, name: industry, widget: string }
+      - { label: Key Result, name: result, widget: string,
+          hint: "e.g. 40% lift in conversion rate" }
+      - { label: Description, name: description, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }

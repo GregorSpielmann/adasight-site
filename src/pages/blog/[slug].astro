@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Base
+  title={post.data.seo_title || post.data.title + ' — adasight'}
+  description={post.data.description}
+>
+  <article style="padding-top: 7rem; padding-bottom: 6rem;">
+    <div class="container">
+      <!-- Back -->
+      <a href="/blog/" style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.875rem; color:var(--text-muted); margin-bottom:2rem;">
+        ← Back to Blog
+      </a>
+
+      <!-- Header -->
+      <div style="max-width: 720px; margin: 0 auto 3rem; text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1.25rem;">{post.data.hero_emoji}</div>
+        <span class="blog-tag">{post.data.category}</span>
+        <h1 style="margin: 0.75rem 0 1rem;">{post.data.title}</h1>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          By {post.data.author} · {post.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="post-content">
+        <Content />
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-banner" style="margin-top: 4rem;">
+        <h2>Want help with analytics or experimentation?</h2>
+        <p>Book a free call with the adasight team to see how we can help your company grow.</p>
+        <a href="/contact/" class="btn btn-primary">Book a Free Call →</a>
+      </div>
+    </div>
+  </article>
+</Base>
