@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
   image?: string;
 }
-const { title, description = "adasight — turn data into revenue-driving decisions. Growth analytics & experimentation consultancy.", image } = Astro.props;
+const { title, description = "Adasight — Your Growth OS. AI-native analytics and experimentation agency.", image } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -24,23 +24,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Favicon placeholder -->
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
   <!-- Nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">ada<span>sight</span></a>
-      <div class="nav-links">
-        <a href="/blog/">Blog</a>
-        <a href="/expertise/">Expertise</a>
-        <a href="/success-stories/">Case Studies</a>
-        <a href="/toolkit/">Toolkit</a>
-        <a href="/contact/" class="nav-cta">Let's Talk</a>
-      </div>
-    </div>
+  <nav>
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon">A</div>
+      Ada<span>sight</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#packages">Packages</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#contact" class="nav-cta">Book a call →</a></li>
+    </ul>
   </nav>
 
   <main>
@@ -48,11 +49,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">ada<span>sight</span></div>
-      <div class="footer-copy">© {new Date().getFullYear()} adasight. All rights reserved.</div>
-    </div>
+  <footer>
+    <div class="foot-logo">Ada<span>sight</span></div>
+    <ul class="foot-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#packages">Packages</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="mailto:dayana.marin@adasight.com">Contact</a></li>
+    </ul>
+    <p class="foot-copy">© {new Date().getFullYear()} Adasight — Your Growth OS.</p>
   </footer>
 </body>
 </html>

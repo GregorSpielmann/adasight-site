@@ -7,42 +7,42 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
 const categories = ['All', ...new Set(posts.map(p => p.data.category))];
 ---
-<Base title="Blog — adasight" description="Practical guides on product analytics, experimentation, and growth from the adasight team.">
+<Base title="Blog — Adasight" description="Practical guides on product analytics, experimentation, and growth from the Adasight team.">
 
-  <section class="section" style="padding-top: 8rem;">
-    <div class="container">
-      <div class="section-label">The adasight Blog</div>
-      <h1 style="margin-bottom: 0.75rem;">Analytics & Experimentation Insights</h1>
-      <p style="margin-bottom: 3rem; max-width: 520px;">Practical guides on product analytics, A/B testing, and growth strategy — written by practitioners.</p>
+  <div class="blog-hero">
+    <p class="label">// THE ADASIGHT BLOG</p>
+    <h1>Analytics &amp; Experimentation<br/>Insights</h1>
+    <p>Practical guides on product analytics, A/B testing, and growth strategy — written by practitioners.</p>
+  </div>
 
-      <!-- Filters -->
-      <div class="blog-filters" id="filters">
-        {categories.map(cat => (
-          <button
-            class={`blog-filter-btn ${cat === 'All' ? 'active' : ''}`}
-            data-filter={cat}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+  <section class="section">
+    <!-- Filters -->
+    <div class="blog-filters" id="filters">
+      {categories.map(cat => (
+        <button
+          class={`blog-filter-btn ${cat === 'All' ? 'active' : ''}`}
+          data-filter={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
 
-      <!-- Grid -->
-      <div class="blog-grid" id="blog-grid">
-        {posts.map(post => (
-          <article class="blog-card" data-category={post.data.category}>
-            <div class="blog-card-img">{post.data.hero_emoji}</div>
-            <div class="blog-card-body">
-              <span class="blog-tag">{post.data.category}</span>
-              <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
-              <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">{post.data.description}</p>
-              <div class="blog-card-meta">
-                {post.data.author} · {post.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
-              </div>
+    <!-- Grid -->
+    <div class="blog-grid" id="blog-grid">
+      {posts.map(post => (
+        <article class="blog-card" data-category={post.data.category}>
+          <div class="blog-card-img">{post.data.hero_emoji}</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">{post.data.category}</span>
+            <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.6;">{post.data.description}</p>
+            <div class="blog-card-meta">
+              {post.data.author} · {post.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
             </div>
-          </article>
-        ))}
-      </div>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -53,11 +53,11 @@ const categories = ['All', ...new Set(posts.map(p => p.data.category))];
   const cards = document.querySelectorAll('.blog-card');
   btns.forEach(btn => {
     btn.addEventListener('click', function() {
-      const filter = this.dataset.filter;
+      const filter = (this as HTMLElement).dataset.filter;
       btns.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       cards.forEach(card => {
-        if (filter === 'All' || card.dataset.category === filter) {
+        if (filter === 'All' || (card as HTMLElement).dataset.category === filter) {
           (card as HTMLElement).style.display = '';
         } else {
           (card as HTMLElement).style.display = 'none';
