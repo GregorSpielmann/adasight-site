@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const categories = [
+  {
+    name: "Data & Analytics",
+    services: [
+      { title: "Amplitude Data Audit", slug: "amplitude-data-audit", type: "Project" },
+      { title: "PostHog Audit", slug: "posthog-audit", type: "Project" },
+      { title: "Data Stack Audit", slug: "data-stack-audit", type: "Project" },
+      { title: "Analytics Retainer — Light", slug: "analytics-retainer-light", type: "Retainer" },
+    ],
+  },
+  {
+    name: "Experimentation",
+    services: [
+      { title: "Experimentation Readiness Audit", slug: "experimentation-readiness-audit", type: "Project" },
+      { title: "Experimentation Foundation Programme", slug: "experimentation-foundation-programme", type: "Retainer" },
+      { title: "Experimentation Flagship Programme", slug: "experimentation-flagship-programme", type: "Retainer" },
+      { title: "CRO Programme", slug: "cro-program", type: "Project" },
+      { title: "Conversion Hypothesis Workshop", slug: "conversion-hypothesis-workshop", type: "Workshop" },
+    ],
+  },
+  {
+    name: "AI & AI Agents",
+    services: [
+      { title: "Amplitude AI Readiness", slug: "amplitude-ai-readiness", type: "Project" },
+      { title: "Amplitude Enterprise Implementation", slug: "amplitude-implementation-enterprise", type: "Project" },
+    ],
+  },
+  {
+    name: "Workshops",
+    services: [
+      { title: "Amplitude Fundamentals Bootcamp", slug: "amplitude-fundamentals-bootcamp", type: "Workshop" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Services — Adasight"
+  description="Explore Adasight's services across Data & Analytics, Experimentation, AI, and Workshops. From audits to full retainer programmes."
+>
+
+<section class="services-hero">
+  <h1 class="services-title">Our Services</h1>
+  <p class="services-subtitle">
+    From analytics audits to full-scale experimentation programmes — choose the engagement that fits where you are today.
+  </p>
+</section>
+
+<section class="services-grid-section">
+  {categories.map((cat) => (
+    <div class="category-block">
+      <h2 class="category-heading">{cat.name}</h2>
+      <div class="services-cards">
+        {cat.services.map((service) => (
+          <a href={`/services/${service.slug}`} class="service-card">
+            <span class="service-type">{service.type}</span>
+            <h3 class="service-title">{service.title}</h3>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .services-hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .services-title {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .services-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .services-grid-section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .category-heading {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s ease, background 0.2s ease;
+    position: relative;
+  }
+
+  .service-card:hover {
+    border-color: var(--cyan);
+    background: var(--bg3);
+  }
+
+  .service-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .service-title {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .service-arrow {
+    margin-top: auto;
+    font-size: 1.25rem;
+    color: var(--cyan);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .service-card:hover .service-arrow {
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .services-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .services-hero {
+      padding: 4rem 1.25rem 2rem;
+    }
+
+    .services-grid-section {
+      padding: 1.5rem 1.25rem 4rem;
+    }
+  }
+</style>
+
+</Base>

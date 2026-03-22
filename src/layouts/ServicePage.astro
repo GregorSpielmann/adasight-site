@@ -1,0 +1,453 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  title: string;
+  tagline: string;
+  category: string;
+  type: string;
+  whoIsFor: string[];
+  scope: string;
+  roadmap: string;
+  outcomes: string[];
+  team: string;
+  slug: string;
+}
+
+const {
+  title,
+  tagline,
+  category,
+  type,
+  whoIsFor,
+  scope,
+  roadmap,
+  outcomes,
+  team,
+  slug,
+} = Astro.props;
+
+const calLink = 'https://cal.com/gregor.spielmann/30min';
+
+function getTypeBadgeClass(t: string): string {
+  if (t === 'Retainer') return 'svc-type-badge--green';
+  if (t === 'Workshop') return 'svc-type-badge--purple';
+  return 'svc-type-badge--blue';
+}
+
+function renderMarkdown(md: string): string {
+  return md
+    .split('\n')
+    .map(line => {
+      const trimmed = line.trim();
+      if (!trimmed) return '';
+      if (trimmed.startsWith('### ')) return `<h3>${trimmed.slice(4)}</h3>`;
+      if (trimmed.startsWith('## ')) return `<h3>${trimmed.slice(3)}</h3>`;
+      if (trimmed.startsWith('**') && trimmed.endsWith('**')) return `<p><strong>${trimmed.slice(2, -2)}</strong></p>`;
+      const boldReplaced = trimmed.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      if (trimmed.startsWith('- ')) return `<li>${boldReplaced.slice(2)}</li>`;
+      return `<p>${boldReplaced}</p>`;
+    })
+    .join('\n')
+    .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`);
+}
+---
+
+<Base title={`${title} — Adasight`} description={tagline}>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="grid-bg"></div>
+  <div class="svc-hero-inner">
+    <div class="svc-badges">
+      <span class="svc-cat-badge">{category}</span>
+      <span class={`svc-type-badge ${getTypeBadgeClass(type)}`}>{type}</span>
+    </div>
+    <h1 class="svc-hero-h1">{title}</h1>
+    <p class="svc-hero-desc">{tagline}</p>
+    <a href={calLink} class="btn-primary">Talk to Our Team</a>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="svc-section svc-section--alt">
+  <div class="svc-section-inner">
+    <p class="label">// Who This Is For</p>
+    <h2 class="section-h2">Is this right for you?</h2>
+    <ul class="svc-bullet-list">
+      {whoIsFor.map((item) => (
+        <li class="svc-bullet-item">
+          <svg class="svc-bullet-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- SCOPE OF WORK -->
+<section class="svc-section">
+  <div class="svc-section-inner">
+    <p class="label">// Scope of Work</p>
+    <h2 class="section-h2">What we deliver</h2>
+    <div class="svc-prose" set:html={renderMarkdown(scope)} />
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="svc-section svc-section--alt">
+  <div class="svc-section-inner">
+    <p class="label">// Roadmap</p>
+    <h2 class="section-h2">How we get there</h2>
+    <div class="svc-prose" set:html={renderMarkdown(roadmap)} />
+  </div>
+</section>
+
+<!-- PROJECT OUTCOMES -->
+<section class="svc-section">
+  <div class="svc-section-inner">
+    <p class="label">// Project Outcomes</p>
+    <h2 class="section-h2">What you walk away with</h2>
+    <ul class="svc-outcomes-list">
+      {outcomes.map((item) => (
+        <li class="svc-outcome-item">
+          <svg class="svc-check-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- TEAM & COLLABORATION -->
+<section class="svc-section svc-section--alt">
+  <div class="svc-section-inner">
+    <p class="label">// Team & Collaboration</p>
+    <h2 class="section-h2">Who you work with</h2>
+    <div class="svc-prose" set:html={renderMarkdown(team)} />
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="svc-cta">
+  <div class="svc-cta-inner">
+    <p class="label">// Get Started</p>
+    <h2 class="section-h2">Ready to get started?</h2>
+    <p class="section-sub">Let's talk about how we can help your team move forward with confidence.</p>
+    <a href={calLink} class="btn-primary">Talk to Our Team</a>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     SERVICE PAGE — HERO
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .svc-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(66, 100, 209, 0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .svc-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .svc-hero-inner {
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .svc-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .svc-cat-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 100px;
+    padding: 6px 16px;
+  }
+
+  .svc-type-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 6px 16px;
+  }
+
+  .svc-type-badge--blue {
+    color: var(--blue-light);
+    border: 1px solid rgba(66, 100, 209, 0.4);
+    background: rgba(66, 100, 209, 0.1);
+  }
+
+  .svc-type-badge--green {
+    color: var(--green);
+    border: 1px solid rgba(74, 222, 170, 0.4);
+    background: rgba(74, 222, 170, 0.1);
+  }
+
+  .svc-type-badge--purple {
+    color: #B794F6;
+    border: 1px solid rgba(183, 148, 246, 0.4);
+    background: rgba(183, 148, 246, 0.1);
+  }
+
+  .svc-hero-h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .svc-hero-desc {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTIONS
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-section {
+    padding: 100px 40px;
+  }
+
+  .svc-section--alt {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .svc-section-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .svc-section-inner .section-h2 {
+    margin-bottom: 32px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     BULLET LISTS (Who Is For)
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-bullet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .svc-bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .svc-bullet-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     OUTCOMES LIST
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .svc-outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .svc-check-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PROSE (rendered markdown)
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-prose {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .svc-prose :global(h3) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-top: 32px;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .svc-prose :global(h3:first-child) {
+    margin-top: 0;
+  }
+
+  .svc-prose :global(p) {
+    margin-bottom: 14px;
+  }
+
+  .svc-prose :global(strong) {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .svc-prose :global(ul) {
+    margin: 12px 0 20px;
+    padding-left: 0;
+  }
+
+  .svc-prose :global(li) {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+  }
+
+  .svc-prose :global(li::before) {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     CTA SECTION
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-cta {
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .svc-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(66, 100, 209, 0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .svc-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .svc-cta-inner .section-h2 {
+    margin-bottom: 18px;
+  }
+
+  .svc-cta-inner .section-sub {
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 960px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .svc-hero {
+      padding: 120px 24px 64px;
+      min-height: auto;
+    }
+
+    .svc-section,
+    .svc-cta {
+      padding: 80px 24px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 580px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 580px) {
+    .svc-hero {
+      padding: 100px 20px 48px;
+    }
+
+    .svc-hero-h1 {
+      letter-spacing: -1.5px;
+    }
+
+    .svc-hero-desc {
+      font-size: 16px;
+    }
+
+    .svc-section,
+    .svc-cta {
+      padding: 64px 20px;
+    }
+
+    .svc-badges {
+      flex-wrap: wrap;
+    }
+  }
+</style>

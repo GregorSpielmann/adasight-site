@@ -9,18 +9,116 @@
 
   <div class="nav-center">
     <ul class="nav-links">
-      <li class="has-dropdown">
-        <button class="nav-link dropdown-trigger">
-          Expertise
+      <li class="has-mega">
+        <button class="nav-link dropdown-trigger" data-mega-trigger>
+          Services
           <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
             <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <ul class="dropdown">
-          <li><a href="/expertise/analytics-consulting">Analyse — Extracting Deep Insights</a></li>
-          <li><a href="/expertise/experimentation">Experimentation — Testing &amp; Iterating</a></li>
-          <li><a href="/expertise/ai-agents-for-analytics">AI Agents for Analytics</a></li>
-        </ul>
+        <div class="mega-menu" id="mega-menu">
+          <div class="mega-categories">
+            <button class="mega-cat is-active" data-cat="da">
+              <span class="mega-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+              </span>
+              Data &amp; Analytics
+            </button>
+            <button class="mega-cat" data-cat="exp">
+              <span class="mega-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v6l-2 4v4h10v-4l-2-4V2"/><path d="M7 16h10"/><path d="M9 22h6"/><path d="M8 2h8"/></svg>
+              </span>
+              Experimentation
+            </button>
+            <button class="mega-cat" data-cat="ai">
+              <span class="mega-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+              </span>
+              AI &amp; AI Agents
+            </button>
+            <button class="mega-cat" data-cat="ws">
+              <span class="mega-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 6.1H3"/><path d="M21 12.1H3"/><path d="M15.1 18H3"/></svg>
+              </span>
+              Workshops
+            </button>
+            <div class="mega-cat-footer">
+              <a href="/services" class="mega-all-link">View all services &rarr;</a>
+            </div>
+          </div>
+          <div class="mega-packages">
+            <!-- Data & Analytics -->
+            <div class="mega-pkg-group is-active" data-group="da">
+              <p class="mega-pkg-label">Retainer Programmes</p>
+              <a href="/services/analytics-retainer-light" class="mega-pkg-item">
+                <span class="mega-pkg-name">Analytics Retainer — Light</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <p class="mega-pkg-label">Projects</p>
+              <a href="/services/posthog-audit" class="mega-pkg-item">
+                <span class="mega-pkg-name">PostHog Audit</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/data-stack-audit" class="mega-pkg-item">
+                <span class="mega-pkg-name">Data Stack Audit</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/amplitude-data-audit" class="mega-pkg-item">
+                <span class="mega-pkg-name">Amplitude Data Audit</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+            </div>
+            <!-- Experimentation -->
+            <div class="mega-pkg-group" data-group="exp">
+              <p class="mega-pkg-label">Retainer Programmes</p>
+              <a href="/services/experimentation-foundation-programme" class="mega-pkg-item">
+                <span class="mega-pkg-name">Foundation Programme</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/experimentation-flagship-programme" class="mega-pkg-item">
+                <span class="mega-pkg-name">Flagship Programme</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/cro-program" class="mega-pkg-item">
+                <span class="mega-pkg-name">CRO Program</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <p class="mega-pkg-label">Projects</p>
+              <a href="/services/experimentation-readiness-audit" class="mega-pkg-item">
+                <span class="mega-pkg-name">Readiness Audit</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/conversion-hypothesis-workshop" class="mega-pkg-item">
+                <span class="mega-pkg-name">Conversion Hypothesis Workshop</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+            </div>
+            <!-- AI & AI Agents -->
+            <div class="mega-pkg-group" data-group="ai">
+              <p class="mega-pkg-label">Projects</p>
+              <a href="/services/amplitude-ai-readiness" class="mega-pkg-item">
+                <span class="mega-pkg-name">Amplitude AI Readiness</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/amplitude-implementation-enterprise" class="mega-pkg-item">
+                <span class="mega-pkg-name">Amplitude Implementation — Enterprise</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+            </div>
+            <!-- Workshops -->
+            <div class="mega-pkg-group" data-group="ws">
+              <p class="mega-pkg-label">Workshops</p>
+              <a href="/services/amplitude-fundamentals-bootcamp" class="mega-pkg-item">
+                <span class="mega-pkg-name">Amplitude Fundamentals Bootcamp</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+              <a href="/services/conversion-hypothesis-workshop" class="mega-pkg-item">
+                <span class="mega-pkg-name">Conversion Hypothesis Workshop</span>
+                <span class="mega-pkg-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </li>
       <li>
         <a href="/success-stories" class="nav-link">Success Stories</a>
@@ -67,10 +165,29 @@
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-inner">
     <div class="mobile-section">
-      <p class="mobile-section-label">Expertise</p>
-      <a href="/expertise/analytics-consulting">Analyse — Extracting Deep Insights</a>
-      <a href="/expertise/experimentation">Experimentation — Testing &amp; Iterating</a>
-      <a href="/expertise/ai-agents-for-analytics">AI Agents for Analytics</a>
+      <p class="mobile-section-label">Data &amp; Analytics</p>
+      <a href="/services/analytics-retainer-light">Analytics Retainer — Light</a>
+      <a href="/services/posthog-audit">PostHog Audit</a>
+      <a href="/services/data-stack-audit">Data Stack Audit</a>
+      <a href="/services/amplitude-data-audit">Amplitude Data Audit</a>
+    </div>
+    <div class="mobile-section">
+      <p class="mobile-section-label">Experimentation</p>
+      <a href="/services/experimentation-foundation-programme">Foundation Programme</a>
+      <a href="/services/experimentation-flagship-programme">Flagship Programme</a>
+      <a href="/services/cro-program">CRO Program</a>
+      <a href="/services/experimentation-readiness-audit">Readiness Audit</a>
+      <a href="/services/conversion-hypothesis-workshop">Conversion Hypothesis Workshop</a>
+    </div>
+    <div class="mobile-section">
+      <p class="mobile-section-label">AI &amp; AI Agents</p>
+      <a href="/services/amplitude-ai-readiness">Amplitude AI Readiness</a>
+      <a href="/services/amplitude-implementation-enterprise">Amplitude Implementation — Enterprise</a>
+    </div>
+    <div class="mobile-section">
+      <p class="mobile-section-label">Workshops</p>
+      <a href="/services/amplitude-fundamentals-bootcamp">Amplitude Fundamentals Bootcamp</a>
+      <a href="/services/conversion-hypothesis-workshop">Conversion Hypothesis Workshop</a>
     </div>
     <a href="/success-stories" class="mobile-top-link">Success Stories</a>
     <div class="mobile-section">
@@ -107,6 +224,20 @@
       hamburger?.classList.remove('is-open');
       hamburger?.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+    });
+  });
+
+  // ── Mega-menu: L-shaped hover logic ──────────────────
+  const megaCats = document.querySelectorAll<HTMLButtonElement>('.mega-cat[data-cat]');
+  const megaGroups = document.querySelectorAll<HTMLDivElement>('.mega-pkg-group[data-group]');
+
+  megaCats.forEach(cat => {
+    cat.addEventListener('mouseenter', () => {
+      const key = cat.dataset.cat;
+      megaCats.forEach(c => c.classList.remove('is-active'));
+      megaGroups.forEach(g => g.classList.remove('is-active'));
+      cat.classList.add('is-active');
+      document.querySelector(`.mega-pkg-group[data-group="${key}"]`)?.classList.add('is-active');
     });
   });
 </script>
@@ -240,6 +371,174 @@
   .dropdown li a:hover {
     color: #F0F2FF;
     background: rgba(66, 100, 209, 0.08);
+  }
+
+  /* ── Mega-menu ─────────────────────────────────────── */
+  .has-mega {
+    position: static;
+  }
+
+  .has-mega .dropdown-trigger {
+    line-height: 68px;
+  }
+
+  .mega-menu {
+    position: absolute;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;
+    display: flex;
+    background: #0d0c22;
+    border: 1px solid rgba(66, 100, 209, 0.18);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s, visibility 0.18s;
+    z-index: 1000;
+  }
+
+  .has-mega:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .has-mega:hover .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── Left column: categories ─── */
+  .mega-categories {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 16px 0;
+    border-right: 1px solid rgba(66, 100, 209, 0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mega-cat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: #8890B8;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+    text-align: left;
+    border-left: 2px solid transparent;
+  }
+
+  .mega-cat:hover {
+    color: #F0F2FF;
+    background: rgba(66, 100, 209, 0.06);
+  }
+
+  .mega-cat.is-active {
+    color: #F0F2FF;
+    background: rgba(66, 100, 209, 0.1);
+    border-left-color: #4264D1;
+  }
+
+  .mega-cat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.15s;
+  }
+
+  .mega-cat.is-active .mega-cat-icon,
+  .mega-cat:hover .mega-cat-icon {
+    opacity: 0.9;
+  }
+
+  .mega-cat-footer {
+    margin-top: auto;
+    padding: 12px 20px 4px;
+    border-top: 1px solid rgba(66, 100, 209, 0.1);
+  }
+
+  .mega-all-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4264D1;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .mega-all-link:hover {
+    color: #5577e8;
+  }
+
+  /* ── Right column: packages ─── */
+  .mega-packages {
+    flex: 1;
+    padding: 16px 20px;
+    min-height: 200px;
+    position: relative;
+  }
+
+  .mega-pkg-group {
+    display: none;
+  }
+
+  .mega-pkg-group.is-active {
+    display: block;
+  }
+
+  .mega-pkg-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4A5080;
+    margin: 0 0 8px 0;
+    padding: 0;
+  }
+
+  .mega-pkg-label:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  .mega-pkg-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #8890B8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .mega-pkg-item:hover {
+    color: #F0F2FF;
+    background: rgba(66, 100, 209, 0.08);
+  }
+
+  .mega-pkg-arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s, transform 0.15s;
+    font-size: 14px;
+  }
+
+  .mega-pkg-item:hover .mega-pkg-arrow {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   /* ── CTA button ──────────────────────────────────── */
@@ -400,6 +699,10 @@
 
     .nav-logo .logo-mobile {
       display: block;
+    }
+
+    .mega-menu {
+      display: none;
     }
   }
 </style>
