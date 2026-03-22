@@ -1,12 +1,27 @@
 ---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description?: string;
   image?: string;
+  canonicalPath?: string;
 }
-const { title, description = "Adasight — Your Growth OS. AI-native analytics and experimentation agency.", image } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const {
+  title,
+  description = "Adasight helps startups and scale-ups from data to decisions by building analytics and experimentation systems into growth they can trust.",
+  image = "/opengraph.png",
+  canonicalPath,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://adasight.com");
+const canonicalURL = new URL(canonicalPath ?? Astro.url.pathname, siteUrl);
+const ogImage = new URL(image, siteUrl).href;
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,55 +29,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  <title>{title}</title>
+
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:type" content="website" />
-  {image && <meta property="og:image" content={image} />}
-  <!-- Fonts -->
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inconsolata:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/webclip.png" />
+
+  <title>{title}</title>
 </head>
 <body>
-  <!-- Nav -->
-  <nav>
-    <a href="/" class="nav-logo">
-      <div class="nav-logo-icon">A</div>
-      Ada<span>sight</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/#packages">Packages</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#contact" class="nav-cta">Book a call →</a></li>
-    </ul>
-  </nav>
-
-  <main>
+  <Nav />
+  <main class="main-wrapper">
     <slot />
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="foot-logo">Ada<span>sight</span></div>
-    <ul class="foot-links">
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/#packages">Packages</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="mailto:dayana.marin@adasight.com">Contact</a></li>
-    </ul>
-    <p class="foot-copy">© {new Date().getFullYear()} Adasight — Your Growth OS.</p>
-  </footer>
+  <Footer />
 </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>

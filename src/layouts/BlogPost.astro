@@ -1,0 +1,136 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  title: string;
+  seoTitle?: string;
+  description: string;
+  author: string;
+  date?: Date;
+  publishDate?: Date;
+  updatedDate?: Date;
+  category: string;
+  tags?: string[];
+  heroEmoji: string;
+  readTime?: string;
+  image?: string;
+}
+
+const {
+  title,
+  seoTitle,
+  description,
+  author,
+  date,
+  publishDate,
+  updatedDate,
+  category,
+  tags = [],
+  heroEmoji,
+  readTime,
+  image,
+} = Astro.props;
+
+const postDate = date || publishDate || new Date();
+const formattedDate = postDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const formattedUpdated = updatedDate?.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  title={seoTitle || `${title} — Adasight`}
+  description={description}
+  image={image}
+>
+  <article class="blog-post-layout">
+    <!-- Post Header -->
+    <div class="post-header">
+      <div class="post-emoji">{heroEmoji}</div>
+      <span class="post-category">{category}</span>
+      <h1>{title}</h1>
+      <p class="post-meta">
+        By {author} · {formattedDate}
+        {readTime && <span> · {readTime}</span>}
+      </p>
+      {formattedUpdated && (
+        <p class="post-updated">Updated {formattedUpdated}</p>
+      )}
+    </div>
+
+    <!-- Back link -->
+    <div class="post-back">
+      <a href="/blog/">&#8592; Back to Blog</a>
+    </div>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="post-tags">
+        {tags.map(tag => (
+          <span class="post-tag-pill">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <!-- CTA -->
+    <div class="post-cta">
+      <h2>Want help with analytics or experimentation?</h2>
+      <p>Book a free discovery call with the Adasight team to see how we can help your company grow.</p>
+      <a href="/contact-us" class="btn-primary">Book a discovery call &rarr;</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .blog-post-layout {
+    width: 100%;
+  }
+  .post-emoji {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .post-back {
+    text-align: center;
+    padding: 24px 40px 0;
+  }
+  .post-back a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .post-back a:hover {
+    color: var(--cyan);
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 1rem 40px 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .post-tag-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .post-updated {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-top: 0.5rem;
+  }
+</style>

@@ -1,0 +1,349 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const testimonial = {
+  quote: "Looking over the notebook you shared, I absolutely love this kind of observation and sharing. It's exactly the kind of insight we've been looking for!",
+  name: 'Analia Ibargoyen',
+  role: 'Head of Product, Tonic Music App',
+};
+
+// Pull from collection
+const collectionStudies = (await getCollection('case-studies', ({ data }) => !data.draft))
+  .sort((a, b) => (b.data.date || new Date()).valueOf() - (a.data.date || new Date()).valueOf())
+  .map(s => ({
+    company: s.data.company || s.data.client,
+    tag: s.data.tag,
+    slug: s.id,
+    description: s.data.description,
+  }));
+
+// Hardcoded fallbacks for case studies not yet in the collection
+const hardcodedStudies = [
+  { company: 'Seatfrog', tag: 'Analytics', slug: 'seatfrog', description: 'How Seatfrog Reactivated Amplitude Analytics to Uncover Actionable User Behavior Insights' },
+  { company: 'Notarize', tag: 'Growth / Testing', slug: 'notarize', description: '15% Increase In Revenue Through A/B Testing Program and AI Workflows in Less Than 9 Months' },
+  { company: 'Wickey', tag: 'Analytics', slug: 'wickey', description: 'How Wickey Built a Unified Analytics Foundation and Experimentation Setup with Amplitude' },
+  { company: 'MightyScout', tag: 'Analytics', slug: 'mightyscout', description: 'How MightyScout Unlocked Full Funnel Visibility and Feature Insights with PostHog Analytics' },
+  { company: 'Prewave', tag: 'Analytics', slug: 'prewave', description: 'Prewave & Adasight: Driving Supply Chain Innovation with Data-Driven Analytics' },
+  { company: 'Sift', tag: 'Growth', slug: 'sift', description: "Sift's Journey to Data-Driven Growth with Adasight" },
+  { company: 'TradeZella', tag: 'Fintech', slug: 'tradezella', description: 'Tradezella: Fintech From Beta to Launch Success' },
+  { company: 'Tonic', tag: 'Music / Growth', slug: 'tonic', description: 'Music App Tonic: Retention & Acquisition Insights and Experimentation To Power Growth' },
+  { company: 'Rutter', tag: 'Data Infrastructure', slug: 'rutter', description: 'How Rutter Unified Their Data Stack and Accelerated Product-Led Growth with Analytics' },
+  { company: 'GravyStack', tag: 'Fintech / Education', slug: 'gravystack', description: 'GravyStack: Building a Data-Driven Culture for a Youth Financial Literacy Platform' },
+  { company: 'Complete Sleep', tag: 'Optimization', slug: 'complete-sleep', description: 'How CompleteSleep Enabled 90% KPI Visibility for Product Optimization' },
+  { company: 'Ticket Tailor', tag: 'Growth', slug: 'ticket-tailor', description: 'Measuring What Matters for Smarter Growth with Amplitude: Enabling Product and Marketing Teams' },
+  { company: 'HealthPlans of NC', tag: 'Optimization', slug: 'healthplans-nc', description: 'HealthPlans of North Carolina: Optimizing Sign Up Flow Through A/B Testing' },
+  { company: 'BetDEX', tag: 'Analytics', slug: 'betdex', description: "Improved BetDEX's Data Tracking and Analytics Capabilities Using Amplitude" },
+  { company: 'Morrow Ventures', tag: 'Acquisition', slug: 'morrow-ventures', description: 'Morrow Ventures: Optimising Marketing Mix with User Acquisition Insights' },
+  { company: 'Zellify', tag: 'Product Growth', slug: 'zellify', description: "Defined KPI Tree and Built Actionable Dashboards to Power Zellify's Product-Led Growth with PostHog" },
+  { company: 'Output', tag: 'Marketing', slug: 'output', description: "Built 12+ Lifecycle Dashboards to Unlock Phase-Level Insights for Output's Marketing Team" },
+  { company: 'SyncCar', tag: 'Data Quality', slug: 'synccar', description: 'SyncCar Achieved 100% Amplitude Data Quality Score' },
+];
+
+// Merge: collection entries take priority, then fill with hardcoded ones not in collection
+const collectionSlugs = new Set(collectionStudies.map(s => s.slug));
+const caseStudies = [
+  ...collectionStudies,
+  ...hardcodedStudies.filter(h => !collectionSlugs.has(h.slug)),
+];
+
+const logos = [
+  'Notarize', 'Prewave', 'Complete Sleep', 'TradeZella', 'Sift',
+  'Tonic', 'Candis', 'Personio', 'GravyStack', 'Morrow',
+  'Rutter', 'BetDEX', 'HealthPlans of NC',
+];
+---
+
+<Base
+  title="Success Stories — Adasight"
+  description="See how 100+ startups and scale-ups transformed their analytics and experimentation with Adasight. Case studies from GravyStack, TradeZella, Tonic.ai, Prewave, Rutter, Sift and more."
+  canonicalPath="/success-stories"
+>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="ss-hero">
+  <div class="grid-bg"></div>
+  <div class="ss-hero-inner">
+    <p class="label">// SUCCESS STORIES</p>
+    <h1 class="ss-h1">Chosen by top growing companies</h1>
+    <p class="ss-hero-sub">Scale with our analytics and market expertise. We set up your analytics, shape growth strategy, and run experimentation programs that drive real results.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIAL ═══════════════════ -->
+<section class="ss-testimonial">
+  <div class="ss-testimonial-inner">
+    <blockquote class="testimonial-card">
+      <svg class="quote-icon" width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M10 11H6.1c.1-3.5 1.4-5 4.9-5.2V3C5.2 3.3 2 6 2 13v8h8V11zm12 0h-3.9c.1-3.5 1.4-5 4.9-5.2V3c-5.8.3-9 3-9 10v8h8V11z" fill="rgba(108,226,255,0.25)"/>
+      </svg>
+      <p class="testimonial-quote">{testimonial.quote}</p>
+      <footer class="testimonial-footer">
+        <span class="testimonial-name">{testimonial.name}</span>
+        <span class="testimonial-role">{testimonial.role}</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+<section class="ss-logos">
+  <div class="ss-logos-inner">
+    <p class="logos-label">TRUSTED BY 100+ FOUNDERS AND GROWTH TEAMS</p>
+    <div class="logos-row">
+      {logos.map((name) => (
+        <span class="logo-pill">{name}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CASE STUDIES GRID ═══════════════════ -->
+<section class="ss-grid">
+  <div class="ss-grid-inner">
+    <p class="label">// CASE STUDIES</p>
+    <h2 class="section-h2">Real results, real companies</h2>
+    <div class="cases">
+      {caseStudies.map((cs) => (
+        <a href={`/success-stories/${cs.slug}`} class="case-card">
+          <div class="case-top">
+            <span class="case-tag">{cs.tag}</span>
+          </div>
+          <h3 class="case-company">{cs.company}</h3>
+          <p class="case-desc">{cs.description}</p>
+          <span class="case-link">Read case study <span class="arrow">&rarr;</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="ss-cta">
+  <div class="ss-cta-inner">
+    <p class="label">// YOUR STORY IS NEXT</p>
+    <h2 class="section-h2">Ready to join them?</h2>
+    <p class="section-sub" style="margin: 0 auto 2rem;">Book a free 30-minute analytics audit and see how we can help your team grow.</p>
+    <a href="/contact-us" class="btn-primary">Book a Free Call</a>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  /* ─── Hero ─── */
+  .ss-hero {
+    position: relative;
+    padding: 10rem 1.5rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(66,100,209,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66,100,209,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .ss-hero-inner {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .ss-h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    max-width: 700px;
+    margin: 0 auto 1.25rem;
+  }
+  .ss-hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ─── Testimonial ─── */
+  .ss-testimonial {
+    padding: 0 1.5rem 4rem;
+  }
+  .ss-testimonial-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .testimonial-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .quote-icon {
+    margin-bottom: 1rem;
+  }
+  .testimonial-quote {
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .testimonial-role {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ─── Trusted By Logos ─── */
+  .ss-logos {
+    padding: 0 1.5rem 4rem;
+  }
+  .ss-logos-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .logos-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+  .logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .logo-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    padding: 0.5rem 1.1rem;
+    white-space: nowrap;
+  }
+
+  /* ─── Case Studies Grid ─── */
+  .ss-grid {
+    padding: 4rem 1.5rem 5rem;
+  }
+  .ss-grid-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .case-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s, transform 0.25s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .case-card:hover {
+    border-color: rgba(66, 100, 209, 0.45);
+    transform: translateY(-3px);
+  }
+  .case-top {
+    margin-bottom: 1rem;
+  }
+  .case-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .case-company {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  .case-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+  .case-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue-light);
+    transition: color 0.2s;
+  }
+  .case-card:hover .case-link {
+    color: var(--cyan);
+  }
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  .case-card:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* ─── CTA ─── */
+  .ss-cta {
+    padding: 4rem 1.5rem 6rem;
+    text-align: center;
+  }
+  .ss-cta-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px) {
+    .cases {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .ss-hero {
+      padding: 8rem 1.25rem 3rem;
+    }
+    .cases {
+      grid-template-columns: 1fr;
+    }
+    .testimonial-card {
+      padding: 1.75rem;
+    }
+    .testimonial-quote {
+      font-size: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,405 @@
+---
+---
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">
+    <img src="/src/assets/logos/adasight-logo.svg" alt="Adasight" class="logo-desktop" />
+    <img src="/src/assets/logos/mobile-logo-short.svg" alt="Adasight" class="logo-mobile" />
+  </a>
+
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <button class="nav-link dropdown-trigger">
+          Expertise
+          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="dropdown">
+          <li><a href="/expertise/analytics-consulting">Analyse — Extracting Deep Insights</a></li>
+          <li><a href="/expertise/experimentation">Experimentation — Testing &amp; Iterating</a></li>
+          <li><a href="/expertise/ai-agents-for-analytics">AI Agents for Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/success-stories" class="nav-link">Success Stories</a>
+      </li>
+      <li class="has-dropdown">
+        <button class="nav-link dropdown-trigger">
+          Toolkit
+          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="dropdown">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resources">Playbooks, Tutorials, AI Plays</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <button class="nav-link dropdown-trigger">
+          AI Products
+          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="dropdown">
+          <li><a href="https://adalyst.ai/" target="_blank" rel="noopener noreferrer">Meet Adalyst</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <a href="https://cal.com/gregor.spielmann/30min?overlayCalendar=true" class="nav-cta" target="_blank" rel="noopener noreferrer">
+    Let's Talk
+  </a>
+
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+    <div class="mobile-section">
+      <p class="mobile-section-label">Expertise</p>
+      <a href="/expertise/analytics-consulting">Analyse — Extracting Deep Insights</a>
+      <a href="/expertise/experimentation">Experimentation — Testing &amp; Iterating</a>
+      <a href="/expertise/ai-agents-for-analytics">AI Agents for Analytics</a>
+    </div>
+    <a href="/success-stories" class="mobile-top-link">Success Stories</a>
+    <div class="mobile-section">
+      <p class="mobile-section-label">Toolkit</p>
+      <a href="/blog">Blog</a>
+      <a href="/resources">Playbooks, Tutorials, AI Plays</a>
+      <a href="/glossary">Glossary</a>
+    </div>
+    <div class="mobile-section">
+      <p class="mobile-section-label">AI Products</p>
+      <a href="https://adalyst.ai/" target="_blank" rel="noopener noreferrer">Meet Adalyst</a>
+    </div>
+    <a href="https://cal.com/gregor.spielmann/30min?overlayCalendar=true" class="mobile-cta" target="_blank" rel="noopener noreferrer">
+      Let's Talk
+    </a>
+  </div>
+</div>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('is-open');
+    hamburger.classList.toggle('is-open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      hamburger?.classList.remove('is-open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+<style>
+  /* ── Nav bar ─────────────────────────────────────── */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 68px;
+    background: rgba(8, 7, 24, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(66, 100, 209, 0.18);
+  }
+
+  /* ── Logo ────────────────────────────────────────── */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .nav-logo .logo-desktop {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-logo .logo-mobile {
+    height: 28px;
+    width: auto;
+    display: none;
+  }
+
+  /* ── Center nav links ────────────────────────────── */
+  .nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: #8890B8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    line-height: 68px;
+  }
+
+  .nav-link:hover {
+    color: #F0F2FF;
+  }
+
+  .chevron {
+    transition: transform 0.2s;
+  }
+
+  /* ── Dropdown ────────────────────────────────────── */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100%);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0d0c22;
+    border: 1px solid rgba(66, 100, 209, 0.18);
+    border-radius: 8px;
+    padding: 6px 0;
+    min-width: 260px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0.15s, transform 0.15s;
+    transform: translateX(-50%) translateY(4px);
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .has-dropdown:hover .chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 10px 20px;
+    color: #8890B8;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+
+  .dropdown li a:hover {
+    color: #F0F2FF;
+    background: rgba(66, 100, 209, 0.08);
+  }
+
+  /* ── CTA button ──────────────────────────────────── */
+  .nav-cta {
+    background: #4264D1;
+    color: white;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: #5577e8;
+    transform: translateY(-1px);
+  }
+
+  /* ── Hamburger ───────────────────────────────────── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #8890B8;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu ─────────────────────────────────── */
+  .mobile-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 7, 24, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-inner {
+    padding: 32px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4A5080;
+    margin-bottom: 4px;
+  }
+
+  .mobile-section a,
+  .mobile-top-link {
+    color: #8890B8;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.15s;
+  }
+
+  .mobile-section a:hover,
+  .mobile-top-link:hover {
+    color: #F0F2FF;
+  }
+
+  .mobile-cta {
+    display: inline-block;
+    background: #4264D1;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+
+  .mobile-cta:hover {
+    background: #5577e8;
+  }
+
+  /* ── Responsive ──────────────────────────────────── */
+  @media (max-width: 960px) {
+    .site-nav {
+      padding: 0 24px;
+    }
+
+    .nav-center {
+      display: none;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-logo .logo-desktop {
+      display: none;
+    }
+
+    .nav-logo .logo-mobile {
+      display: block;
+    }
+  }
+</style>

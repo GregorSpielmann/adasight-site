@@ -1,0 +1,366 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const resources = (await getCollection('resources', ({ data }) => !data.draft))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const types = ['All', ...new Set(resources.map(r => r.data.type))];
+const categories = ['All', ...new Set(resources.map(r => r.data.category))];
+
+function typeLabel(t: string) {
+  const labels: Record<string, string> = {
+    guide: 'Guide',
+    template: 'Template',
+    checklist: 'Checklist',
+    report: 'Report',
+    playbook: 'Playbook',
+    webinar: 'Webinar',
+    prompt: 'Prompt',
+    'custom-gpt': 'Custom GPT',
+  };
+  return labels[t] || t;
+}
+---
+
+<Base
+  title="Resources — Adasight"
+  description="Free analytics templates, guides, playbooks, and tools to level up your data and experimentation practice."
+>
+
+  <!-- Hero -->
+  <section class="res-hero">
+    <div class="grid-bg"></div>
+    <div class="res-hero-inner">
+      <p class="label">// RESOURCES</p>
+      <h1>Analytics Toolkit</h1>
+      <p class="res-hero-sub">Free templates, guides, playbooks, and tools to level up your analytics and experimentation practice.</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="res-filters">
+    <div class="res-filters-inner">
+      <div class="res-filter-group">
+        <span class="res-filter-label">Type</span>
+        <div class="res-filter-btns" id="type-filters">
+          {types.map(t => (
+            <button class={`res-filter-btn ${t === 'All' ? 'active' : ''}`} data-filter-type={t}>
+              {t === 'All' ? 'All' : typeLabel(t)}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div class="res-filter-group">
+        <span class="res-filter-label">Topic</span>
+        <div class="res-filter-btns" id="cat-filters">
+          {categories.map(c => (
+            <button class={`res-filter-btn ${c === 'All' ? 'active' : ''}`} data-filter-cat={c}>
+              {c}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="res-grid-section">
+    <div class="res-grid" id="res-grid">
+      {resources.map(r => (
+        <a
+          href={r.data.downloadUrl || `/resources/${r.id}/`}
+          class="res-card"
+          data-type={r.data.type}
+          data-category={r.data.category}
+          target={r.data.downloadUrl ? '_blank' : undefined}
+          rel={r.data.downloadUrl ? 'noopener noreferrer' : undefined}
+        >
+          {r.data.image && (
+            <div class="res-card-img">
+              <img src={r.data.image} alt={r.data.title} loading="lazy" />
+            </div>
+          )}
+          <div class="res-card-body">
+            <div class="res-card-badges">
+              <span class="res-type-badge">{typeLabel(r.data.type)}</span>
+              <span class="res-cat-badge">{r.data.category}</span>
+            </div>
+            <h3>{r.data.title}</h3>
+            <p>{r.data.description}</p>
+            <span class="res-card-link">
+              {r.data.downloadUrl ? `Get ${typeLabel(r.data.type)}` : 'Learn more'} <span class="arrow">&rarr;</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+    <p class="res-empty" id="res-empty" style="display:none;">No resources match your filters.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="res-cta">
+    <p class="label">// WANT A CUSTOM SOLUTION?</p>
+    <h2 class="section-h2">Let us build it for you</h2>
+    <p class="section-sub" style="margin: 0 auto 2rem;">Need a custom dashboard, tracking plan, or experimentation programme? Talk to our team.</p>
+    <a href="/contact-us" class="btn-primary">Book a Free Call</a>
+  </section>
+
+</Base>
+
+<script>
+  function initFilters() {
+    const cards = document.querySelectorAll('.res-card') as NodeListOf<HTMLElement>;
+    const empty = document.getElementById('res-empty') as HTMLElement;
+    let activeType = 'All';
+    let activeCat = 'All';
+
+    function filterCards() {
+      let visible = 0;
+      cards.forEach(card => {
+        const matchType = activeType === 'All' || card.dataset.type === activeType;
+        const matchCat = activeCat === 'All' || card.dataset.category === activeCat;
+        if (matchType && matchCat) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      empty.style.display = visible === 0 ? '' : 'none';
+    }
+
+    document.querySelectorAll('#type-filters .res-filter-btn').forEach(btn => {
+      btn.addEventListener('click', function(this: HTMLElement) {
+        activeType = this.dataset.filterType || 'All';
+        document.querySelectorAll('#type-filters .res-filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterCards();
+      });
+    });
+
+    document.querySelectorAll('#cat-filters .res-filter-btn').forEach(btn => {
+      btn.addEventListener('click', function(this: HTMLElement) {
+        activeCat = this.dataset.filterCat || 'All';
+        document.querySelectorAll('#cat-filters .res-filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterCards();
+      });
+    });
+  }
+
+  initFilters();
+</script>
+
+<style>
+  /* ─── Hero ─── */
+  .res-hero {
+    position: relative;
+    padding: 10rem 1.5rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .res-hero-inner {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .res-hero h1 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    max-width: 600px;
+    margin: 0 auto 1.25rem;
+  }
+  .res-hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ─── Filters ─── */
+  .res-filters {
+    padding: 0 1.5rem 2rem;
+  }
+  .res-filters-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .res-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .res-filter-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .res-filter-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .res-filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .res-filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--text);
+  }
+  .res-filter-btn.active {
+    background: var(--blue-dim);
+    border-color: var(--blue);
+    color: var(--cyan);
+  }
+
+  /* ─── Grid ─── */
+  .res-grid-section {
+    padding: 0 1.5rem 4rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .res-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .res-card:hover {
+    border-color: rgba(66, 100, 209, 0.45);
+    transform: translateY(-3px);
+  }
+  .res-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg3);
+    overflow: hidden;
+  }
+  .res-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .res-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .res-card-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .res-type-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 3px 8px;
+    border-radius: 100px;
+  }
+  .res-cat-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .res-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .res-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .res-card-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue-light);
+    transition: color 0.2s;
+  }
+  .res-card:hover .res-card-link {
+    color: var(--cyan);
+  }
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  .res-card:hover .arrow {
+    transform: translateX(4px);
+  }
+  .res-empty {
+    text-align: center;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    padding: 3rem 0;
+  }
+
+  /* ─── CTA ─── */
+  .res-cta {
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px) {
+    .res-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .res-hero {
+      padding: 8rem 1.25rem 3rem;
+    }
+    .res-grid {
+      grid-template-columns: 1fr;
+    }
+    .res-filters-inner {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

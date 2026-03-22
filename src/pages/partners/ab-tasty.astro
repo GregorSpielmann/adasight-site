@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Web & App Experimentation",
+    description: "Run A/B tests, multivariate tests, and split URL tests across your web and mobile experiences. AB Tasty's visual editor and code editor give your team flexibility to test fast without heavy dev resources.",
+  },
+  {
+    title: "Personalization at Scale",
+    description: "Deliver tailored experiences to different audience segments with AB Tasty's AI-driven personalization engine. Increase conversions by showing the right content to the right users at the right time.",
+  },
+  {
+    title: "Feature Management & Rollouts",
+    description: "Ship features progressively with AB Tasty's feature flags and rollout controls. Reduce risk, gather feedback early, and make data-driven decisions about which features to scale.",
+  },
+];
+
+const services = [
+  {
+    label: "// Experimentation Strategy",
+    heading: "Build a winning testing roadmap",
+    description: "We help you define an experimentation strategy aligned with your growth goals. From hypothesis generation to test prioritization, we ensure every experiment is designed to deliver meaningful business impact.",
+  },
+  {
+    label: "// Implementation",
+    heading: "Get AB Tasty integrated seamlessly",
+    description: "Proper implementation is key to reliable test results. We handle the technical setup, including tag integration, goal configuration, and audience targeting, so your experiments produce trustworthy data from day one.",
+  },
+  {
+    label: "// Test Design & Analysis",
+    heading: "Design experiments that produce clear winners",
+    description: "We design statistically rigorous experiments with proper sample sizes, clear success metrics, and controlled variables. After each test, we deliver in-depth analysis that goes beyond surface-level metrics to uncover the real drivers of performance.",
+  },
+  {
+    label: "// CRO & Optimization",
+    heading: "Continuously improve conversion rates",
+    description: "Experimentation is most powerful when it becomes a continuous process. We help you build a culture of optimization, running iterative tests across your funnel to compound gains and drive sustained revenue growth.",
+  },
+];
+---
+
+<PartnerPage
+  title="AB Tasty Experimentation Partner — Adasight"
+  metaDescription="Maximize your AB Tasty investment with Adasight's experimentation consulting. From test strategy to advanced CRO, we help you run experiments that drive real business impact."
+  partnerName="AB Tasty"
+  heroLabel="// Partner — AB Tasty"
+  heroHeading="Experimentation That Drives Growth"
+  heroDescription="AB Tasty empowers teams to run experiments, personalize experiences, and manage feature rollouts from a single platform. Turn your optimization efforts into measurable revenue impact with the right strategy and implementation."
+  pillars={pillars}
+  valueHeading="Get the full value out of AB Tasty"
+  valueDescription="Whether you need a comprehensive experimentation program, CRO strategy, or advanced personalization, Adasight's team of senior experimentation experts will help you build a data-driven testing culture that compounds results."
+  services={services}
+  ctaHeading="Adasight + AB Tasty"
+  ctaDescription="Adasight is your go-to partner for growth, specializing in experimentation and conversion rate optimization. We provide companies with top-class frameworks to thrive."
+/>

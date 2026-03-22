@@ -1,0 +1,260 @@
+---
+import Base from '../layouts/Base.astro';
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
+---
+
+<Base
+  title="Contact Us — Adasight"
+  description="Book a free 30-minute growth analytics audit with Adasight. We'll assess your tracking, data reliability, and give you actionable recommendations."
+  canonicalPath="/contact-us"
+>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="contact-hero">
+  <div class="grid-bg"></div>
+  <div class="contact-hero-inner">
+    <p class="label">// GET IN TOUCH</p>
+    <h1 class="contact-h1">Measure how you're stacking up in just 45 minutes.</h1>
+    <p class="contact-sub">
+      We'll assess whether your tracking is accurate, your data reliable, and your insights actionable — then give you a personalised report with recommendations.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ VALUE PROPS ═══════════════════ -->
+<section class="contact-value">
+  <div class="contact-value-inner">
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 14l5 5 9-9" stroke="#6CE2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p>Verified against tracking & reporting best practices</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="7" width="22" height="14" rx="3" stroke="#6CE2FF" stroke-width="1.5"/><path d="M8 17V13m4 4V11m4 6v-3m4 3V10" stroke="#6CE2FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <p>Benchmarked team data usage against industry standards</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v22M3 14h22" stroke="#6CE2FF" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="14" r="6" stroke="#6CE2FF" stroke-width="1.5"/></svg>
+      </div>
+      <p>Personalised report with improvement recommendations</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 18l5-5 4 3 7-8" stroke="#6CE2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p>Experimentation guidance available</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CAL EMBED ═══════════════════ -->
+<section class="contact-cal">
+  <div class="contact-cal-inner">
+    <p class="label">// BOOK YOUR FREE AUDIT</p>
+    <h2 class="section-h2">Schedule a call</h2>
+    <p class="section-sub" style="margin-bottom: 2.5rem;">Pick a time that works for you. We'll walk you through a free analytics audit and discuss how we can help.</p>
+    <div class="cal-embed-wrap">
+      <iframe
+        src="https://cal.com/gregor.spielmann/30min?embed=true&theme=dark"
+        style="width:100%;height:700px;border:none;border-radius:var(--radius);"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT INFO ═══════════════════ -->
+<section class="contact-info">
+  <div class="contact-info-inner">
+    <div class="info-card">
+      <span class="info-label">Email</span>
+      <a href="mailto:hello@adasight.com" class="info-link">hello@adasight.com</a>
+    </div>
+    <div class="info-card">
+      <span class="info-label">Schedule</span>
+      <a href={calLink} target="_blank" rel="noopener" class="info-link">Book a 30-min call</a>
+    </div>
+    <div class="info-card">
+      <span class="info-label">Headquarters</span>
+      <p class="info-text">Raamgracht 1011 KK<br />Amsterdam, The Netherlands</p>
+    </div>
+    <div class="info-card">
+      <span class="info-label">Social</span>
+      <div class="info-socials">
+        <a href="https://www.linkedin.com/company/adasight/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/adasight/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  /* ─── Hero ─── */
+  .contact-hero {
+    position: relative;
+    padding: 10rem 1.5rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(66,100,209,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66,100,209,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .contact-hero-inner {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .contact-h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    max-width: 760px;
+    margin: 0 auto 1.25rem;
+  }
+  .contact-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ─── Value Props ─── */
+  .contact-value {
+    padding: 0 1.5rem 4rem;
+  }
+  .contact-value-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .value-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .value-icon {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+  .value-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── Cal Embed ─── */
+  .contact-cal {
+    padding: 4rem 1.5rem 5rem;
+  }
+  .contact-cal-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .cal-embed-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* ─── Contact Info ─── */
+  .contact-info {
+    padding: 2rem 1.5rem 6rem;
+  }
+  .contact-info-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .info-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+  .info-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .info-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .info-link:hover {
+    color: var(--cyan);
+  }
+  .info-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .info-socials {
+    display: flex;
+    gap: 1rem;
+  }
+  .info-socials a {
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .info-socials a:hover {
+    color: var(--cyan);
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px) {
+    .contact-value-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-info-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .contact-hero {
+      padding: 8rem 1.25rem 3rem;
+    }
+    .contact-value-inner {
+      grid-template-columns: 1fr;
+    }
+    .contact-info-inner {
+      grid-template-columns: 1fr;
+    }
+    .cal-embed-wrap iframe {
+      height: 600px;
+    }
+  }
+</style>

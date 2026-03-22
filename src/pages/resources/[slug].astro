@@ -1,0 +1,205 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const resources = await getCollection('resources', ({ data }) => !data.draft);
+  return resources.map(resource => ({
+    params: { slug: resource.id },
+    props: { resource },
+  }));
+}
+
+const { resource } = Astro.props;
+const { Content } = await render(resource);
+
+function typeLabel(t: string) {
+  const labels: Record<string, string> = {
+    guide: 'Guide',
+    template: 'Template',
+    checklist: 'Checklist',
+    report: 'Report',
+    playbook: 'Playbook',
+    webinar: 'Webinar',
+    prompt: 'Prompt',
+    'custom-gpt': 'Custom GPT',
+  };
+  return labels[t] || t;
+}
+---
+
+<Base
+  title={`${resource.data.title} — Adasight Resources`}
+  description={resource.data.description}
+>
+  <article class="resource-layout">
+    <!-- Header -->
+    <div class="resource-header">
+      <a href="/resources/" class="resource-back">&#8592; Resources</a>
+      <div class="resource-badges">
+        <span class="resource-type">{typeLabel(resource.data.type)}</span>
+        <span class="resource-cat">{resource.data.category}</span>
+      </div>
+      <h1>{resource.data.title}</h1>
+      <p class="resource-desc">{resource.data.description}</p>
+      {resource.data.downloadUrl && (
+        <a href={resource.data.downloadUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Get {typeLabel(resource.data.type)} &rarr;
+        </a>
+      )}
+    </div>
+
+    <!-- Content -->
+    <div class="resource-content">
+      <Content />
+    </div>
+
+    <!-- CTA -->
+    <div class="resource-cta">
+      <p class="label">// WANT A CUSTOM SOLUTION?</p>
+      <h2>Let us build it for you</h2>
+      <p class="resource-cta-sub">Need a custom dashboard, tracking plan, or experimentation programme? Talk to our team.</p>
+      <a href="/contact-us" class="btn-primary">Book a Free Call &rarr;</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .resource-layout {
+    width: 100%;
+  }
+
+  /* ─── Header ─── */
+  .resource-header {
+    text-align: center;
+    padding: 10rem 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .resource-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .resource-back:hover {
+    color: var(--cyan);
+  }
+  .resource-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .resource-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .resource-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .resource-header h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .resource-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ─── Content ─── */
+  .resource-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .resource-content :global(h2) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.5px;
+  }
+  .resource-content :global(h3) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 2rem 0 0.75rem;
+  }
+  .resource-content :global(p) {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 16px;
+  }
+  .resource-content :global(ul),
+  .resource-content :global(ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .resource-content :global(li) {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    list-style: disc;
+  }
+  .resource-content :global(ol li) {
+    list-style: decimal;
+  }
+  .resource-content :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ─── CTA ─── */
+  .resource-cta {
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .resource-cta h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .resource-cta-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 580px) {
+    .resource-header {
+      padding: 8rem 1.25rem 2rem;
+    }
+  }
+</style>

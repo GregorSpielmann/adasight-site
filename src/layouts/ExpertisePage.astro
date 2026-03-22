@@ -1,0 +1,601 @@
+---
+import Base from './Base.astro';
+
+export interface ServiceCard {
+  title: string;
+  description: string;
+}
+
+export interface ServiceSection {
+  label: string;
+  heading: string;
+  description?: string;
+  cards: ServiceCard[];
+}
+
+export interface ProblemCard {
+  text: string;
+}
+
+export interface Props {
+  title: string;
+  metaDescription: string;
+  heroLabel: string;
+  heroHeading: string;
+  heroDescription: string;
+  problemsHeading: string;
+  problemsDescription: string;
+  problems: ProblemCard[];
+  serviceSections: ServiceSection[];
+}
+
+const {
+  title,
+  metaDescription,
+  heroLabel,
+  heroHeading,
+  heroDescription,
+  problemsHeading,
+  problemsDescription,
+  problems,
+  serviceSections,
+} = Astro.props;
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
+
+const logos = [
+  'notarize', 'prewave', 'complete-sleep', 'tradezella', 'sift', 'bywit',
+  'tonic', 'templa', 'candis', 'personio', 'responsescribe', 'gravystack',
+  'morrow', 'navlin', 'betdex', 'healthplans', 'rutter',
+];
+---
+
+<Base title={title} description={metaDescription}>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="exp-hero">
+  <div class="grid-bg"></div>
+  <div class="exp-hero-inner">
+    <p class="label">{heroLabel}</p>
+    <h1 class="exp-hero-h1">{heroHeading}</h1>
+    <p class="exp-hero-desc">{heroDescription}</p>
+    <a href={calLink} class="btn-primary">Let's Connect!</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+<section class="exp-logos-section">
+  <p class="exp-logos-label">Trusted by 100+ founders and growth teams at</p>
+  <div class="exp-logo-track">
+    <div class="exp-logo-strip">
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROBLEMS ═══════════════════ -->
+<section class="exp-problems">
+  <div class="exp-problems-inner">
+    <p class="label">// Pain Points</p>
+    <h2 class="section-h2">{problemsHeading}</h2>
+    <p class="section-sub">{problemsDescription}</p>
+    <div class="exp-problems-grid">
+      {problems.map((problem, i) => (
+        <div class="exp-problem-card">
+          <span class="exp-problem-num">{String(i + 1).padStart(2, '0')}</span>
+          <p>{problem.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICE SECTIONS ═══════════════════ -->
+{serviceSections.map((section, idx) => (
+  <section class={`exp-services ${idx % 2 === 1 ? 'exp-services--alt' : ''}`}>
+    <div class="exp-services-inner">
+      <p class="label">{section.label}</p>
+      <h2 class="section-h2">{section.heading}</h2>
+      {section.description && <p class="section-sub">{section.description}</p>}
+      <div class="exp-services-grid">
+        {section.cards.map((card) => (
+          <div class="exp-service-card">
+            <div class="exp-service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+))}
+
+<!-- ═══════════════════ DISCOVERY CTA ═══════════════════ -->
+<section class="exp-cta-section">
+  <div class="exp-cta-inner">
+    <p class="label">// Get Started</p>
+    <h2 class="section-h2">Book a Discovery Call</h2>
+    <p class="section-sub">Ready to take your product and marketing performance to the next level? Let's start a conversation about transforming your data into actionable strategies.</p>
+    <a href={calLink} class="btn-primary exp-cta-btn">Book a Free Call</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="exp-testimonials">
+  <div class="exp-testimonials-inner">
+    <p class="label">// Testimonials</p>
+    <h2 class="section-h2">We've helped 100+ teams use Growth Analytics to scale</h2>
+    <div class="exp-testimonials-grid">
+      <div class="exp-testimonial-card">
+        <div class="exp-tc-header">
+          <img src="/src/assets/testimonials/saira-tradezella.png" alt="Saira Ashraf" class="exp-tc-photo" />
+          <div>
+            <div class="exp-tc-name">Saira Ashraf</div>
+            <div class="exp-tc-role">Head of Growth, Tradezella</div>
+          </div>
+        </div>
+        <p class="exp-tc-quote">"Gregor's one of the best data consultants, especially with Amplitude. He's helped our team a lot, getting our app on track with the right data. He's great at getting Amplitude set up, and he's always in sync with our dev and product teams to make sure everything's tracked right."</p>
+      </div>
+      <div class="exp-testimonial-card">
+        <div class="exp-tc-header">
+          <img src="/src/assets/testimonials/analia-tonic.png" alt="Analia Ibargoyen" class="exp-tc-photo" />
+          <div>
+            <div class="exp-tc-name">Analia Ibargoyen</div>
+            <div class="exp-tc-role">Head of Product, Tonic</div>
+          </div>
+        </div>
+        <p class="exp-tc-quote">"I absolutely love the observations and knowledge sharing from Adasight's team. It's exactly the kind of insights we've been looking to understand from our onboarding and activation! Specifically, I love how you're correlating data, deriving potential causes, and also describing the charts. Immensely helpful."</p>
+      </div>
+      <div class="exp-testimonial-card">
+        <div class="exp-tc-header">
+          <img src="/src/assets/testimonials/stephanie-gravystack.png" alt="Stephanie McDaniel" class="exp-tc-photo" />
+          <div>
+            <div class="exp-tc-name">Stephanie McDaniel</div>
+            <div class="exp-tc-role">COO, GravyStack</div>
+          </div>
+        </div>
+        <p class="exp-tc-quote">"Their vast knowledge, ability to adapt proven frameworks and willingness to go above and beyond make them a top choice to power the growth of our Gravystack app. Through insights and changes in our onboarding that improve activation. You have been a joy to work with."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+<section class="exp-final-cta">
+  <div class="exp-final-cta-inner">
+    <h2 class="section-h2">Ready to transform your business into a Growth Machine?</h2>
+    <a href={calLink} class="btn-primary">Book a Free Call</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ EXTRA SLOT ═══════════════════ -->
+<slot />
+
+</Base>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     EXPERTISE PAGE — HERO
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(66, 100, 209, 0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .exp-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .exp-hero-inner {
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .exp-hero-h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(38px, 5.5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .exp-hero-desc {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     TRUSTED-BY LOGOS
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-logos-section {
+    background: var(--bg2);
+    padding: 40px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+    text-align: center;
+  }
+
+  .exp-logos-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .exp-logo-track {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .exp-logo-strip {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    width: max-content;
+    animation: expScrollLeft 50s linear infinite;
+  }
+
+  .exp-logo-strip img {
+    height: 36px;
+    width: auto;
+    opacity: 0.45;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+  }
+
+  .exp-logo-strip img:hover {
+    opacity: 0.75;
+  }
+
+  @keyframes expScrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PROBLEMS SECTION
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-problems {
+    padding: 100px 40px;
+  }
+
+  .exp-problems-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .exp-problems-inner .section-sub {
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+
+  .exp-problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .exp-problem-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 32px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .exp-problem-card:hover {
+    border-color: var(--border);
+    transform: translateY(-3px);
+  }
+
+  .exp-problem-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .exp-problem-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SERVICE SECTIONS
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-services {
+    padding: 100px 40px;
+  }
+
+  .exp-services--alt {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .exp-services-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .exp-services-inner .section-sub {
+    max-width: 620px;
+    margin-bottom: 12px;
+  }
+
+  .exp-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .exp-service-card {
+    background: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 36px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .exp-services--alt .exp-service-card {
+    background: var(--bg);
+  }
+
+  .exp-service-card:hover {
+    border-color: var(--border);
+    transform: translateY(-3px);
+  }
+
+  .exp-service-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(108, 226, 255, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .exp-service-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 12px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .exp-service-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     DISCOVERY CTA
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-cta-section {
+    padding: 100px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .exp-cta-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .exp-cta-inner .section-sub {
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  .exp-cta-btn {
+    margin-top: 8px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-testimonials {
+    padding: 100px 40px;
+  }
+
+  .exp-testimonials-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .exp-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .exp-testimonial-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 32px;
+    transition: border-color 0.25s;
+  }
+
+  .exp-testimonial-card:hover {
+    border-color: var(--border);
+  }
+
+  .exp-tc-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .exp-tc-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .exp-tc-name {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .exp-tc-role {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  .exp-tc-quote {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════════ */
+  .exp-final-cta {
+    padding: 100px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    text-align: center;
+  }
+
+  .exp-final-cta-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .exp-final-cta-inner .section-h2 {
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 960px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .exp-hero {
+      padding: 120px 24px 64px;
+      min-height: auto;
+    }
+
+    .exp-problems,
+    .exp-services,
+    .exp-cta-section,
+    .exp-testimonials,
+    .exp-final-cta {
+      padding: 80px 24px;
+    }
+
+    .exp-services-grid,
+    .exp-testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exp-problems-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 580px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 580px) {
+    .exp-hero {
+      padding: 100px 20px 48px;
+    }
+
+    .exp-hero-h1 {
+      letter-spacing: -1.5px;
+    }
+
+    .exp-hero-desc {
+      font-size: 16px;
+    }
+
+    .exp-problems,
+    .exp-services,
+    .exp-cta-section,
+    .exp-testimonials,
+    .exp-final-cta {
+      padding: 64px 20px;
+    }
+
+    .exp-problems-grid,
+    .exp-services-grid,
+    .exp-testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-logo-strip img {
+      height: 28px;
+    }
+
+    .exp-logos-section {
+      padding: 28px 0;
+    }
+  }
+</style>

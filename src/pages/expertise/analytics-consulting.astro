@@ -1,0 +1,101 @@
+---
+import ExpertisePage from '../../layouts/ExpertisePage.astro';
+
+const problems = [
+  { text: "Struggling to identify product-market fit, optimize user behavior, and identify user segments, leading to missed opportunities and lower engagement." },
+  { text: "Difficulty in understanding which marketing channels drive conversions and how to optimize the customer journey for maximum ROI." },
+  { text: "Facing challenges in defining key growth metrics, forecasting future performance, and optimizing customer lifetime value effectively." },
+  { text: "Overwhelmed by data but lacking actionable insights from reports, funnel analyses, and impact assessments to drive informed decisions." },
+];
+
+const serviceSections = [
+  {
+    label: "// Product-Market Fit",
+    heading: "Align Product with Market Demand",
+    description: "Measure and refine your product's alignment with market demand, ensuring a strong fit that drives engagement and growth.",
+    cards: [
+      {
+        title: "Product Market Fit Analysis",
+        description: "Measure and refine your product's alignment with market demand, ensuring a strong fit that drives engagement and growth.",
+      },
+      {
+        title: "Behavioral Analytics Diagnosis",
+        description: "Dive deep into user behavior to identify opportunities and address product issues that impact user experience.",
+      },
+      {
+        title: "User Segmentation & Power User Identification",
+        description: "Segment your users and identify power users to tailor experiences that boost retention and loyalty.",
+      },
+    ],
+  },
+  {
+    label: "// Marketing ROI",
+    heading: "Maximize Marketing ROI with Precise Attribution",
+    description: "Optimize your marketing spend by understanding what actually drives conversions across your channels.",
+    cards: [
+      {
+        title: "Marketing Channel Analysis",
+        description: "Optimize your user acquisition by identifying and analyzing the most effective marketing channels.",
+      },
+      {
+        title: "Marketing Attribution Definition",
+        description: "Implement precise marketing attribution models to understand which efforts are driving conversions and optimize your ROI.",
+      },
+      {
+        title: "Critical Conversion Funnel Definition & Measurement",
+        description: "Define and track critical conversion funnels to optimize the customer journey and improve conversions.",
+      },
+    ],
+  },
+  {
+    label: "// Growth Optimisation",
+    heading: "Growth Optimisation",
+    description: "Establish the right KPIs, forecast performance, and optimize lifetime value for sustainable growth.",
+    cards: [
+      {
+        title: "Growth Indicators Definition (KPI) & Growth Model",
+        description: "Establish key performance indicators and baselines to measure and drive sustainable growth.",
+      },
+      {
+        title: "Growth Forecasting",
+        description: "Leverage data-driven forecasting to predict future performance and strategically plan for business growth.",
+      },
+      {
+        title: "LTV Measurement & Optimization",
+        description: "Develop strategies to optimize customer lifetime value, CAC and ensure cost-effective growth through LTV analysis.",
+      },
+    ],
+  },
+  {
+    label: "// Actionable Insights",
+    heading: "Gain Actionable Insights from Your Users",
+    description: "Move from raw data to clear, actionable insights with regular reporting and advanced analysis.",
+    cards: [
+      {
+        title: "Regular Insight Reporting & Trend Analysis",
+        description: "Receive ongoing, data-driven insights with weekly or bi-weekly reports to stay ahead of the competition.",
+      },
+      {
+        title: "Advanced Funnel Analysis",
+        description: "Conduct in-depth analyses of user funnels to optimize conversion paths and improve overall performance.",
+      },
+      {
+        title: "Impact Assessment & Feature Release Reporting",
+        description: "Analyze the impact of new feature releases with detailed reporting and data-driven insights to guide your next steps.",
+      },
+    ],
+  },
+];
+---
+
+<ExpertisePage
+  title="Analytics Consulting — Adasight"
+  metaDescription="Elevate your business performance by seamlessly integrating behavioral insights and marketing data. Our expert-led analytics consulting drives product innovation and marketing effectiveness."
+  heroLabel="// Expertise — Analytics Consulting"
+  heroHeading="Integrated Product & Marketing Analytics"
+  heroDescription="Elevate your business performance by seamlessly integrating behavioral insights and marketing data. Our expert-led service drives product innovation and marketing effectiveness, ensuring data-driven decisions that propel your growth."
+  problemsHeading="Battling these growth problems?"
+  problemsDescription="Keeping up with the evolving data landscape and extracting meaningful insights can be overwhelming, leading to missed opportunities and slower growth."
+  problems={problems}
+  serviceSections={serviceSections}
+/>

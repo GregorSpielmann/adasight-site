@@ -1,260 +1,547 @@
 ---
 import Base from '../layouts/Base.astro';
+import HomePageBottom from '../components/HomePageBottom.astro';
+
+const logos = [
+  'notarize', 'prewave', 'complete-sleep', 'tradezella', 'sift', 'bywit',
+  'tonic', 'templa', 'candis', 'personio', 'responsescribe', 'gravystack',
+  'morrow', 'navlin', 'betdex', 'healthplans', 'rutter', 'africhange',
+  'cleardigital', 'ebrands', 'glamoreworld', 'handsoffceo', 'inspiringvacation',
+  'jupusai', 'mightyscout', 'novo', 'output', 'redirecthealth', 'synccar',
+  'tickettailor', 'tillerhq', 'torahlive', 'ultraspeaking', 'wickey', 'zellify', 'zero',
+];
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
 ---
-<Base title="Adasight — Your Growth OS" description="Adasight closes the gap between data and decisions — delivering analytics infrastructure and experimentation programs as a productized, AI-powered service.">
 
-<!-- HERO -->
-<section class="hero" id="home">
+<Base
+  title="Adasight — Growth Operating System"
+  description="Adasight helps startups and scale-ups from data to decisions by building analytics and experimentation systems into growth they can trust."
+>
+
+<!-- ═══════════════════ SECTION 1 — HERO ═══════════════════ -->
+<section class="hero" id="hero-section">
   <div class="grid-bg"></div>
-  <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    AI-native analytics &amp; experimentation
-  </div>
-  <h1>
-    Your <span class="cyan">Growth OS</span><br/>
-    built on data,<br/>
-    <span class="blue">powered by evidence</span>
-  </h1>
-  <p>
-    We close the gap between data and decisions — delivering analytics infrastructure and experimentation programs as a productized, AI-powered service.
+
+  <h3 class="hero-label">growth operating system &mdash; measure, analyze and experiment</h3>
+
+  <h1 class="hero-h1">Turn data into revenue driving decisions</h1>
+
+  <p class="hero-p">
+    Adasight helps startups and scale-ups from data to decisions by building analytics and experimentation systems into growth they can trust.
   </p>
-  <div class="hero-btns">
-    <a href="#services" class="btn-primary">Explore our services</a>
-    <a href="#contact" class="btn-ghost">Book a discovery call</a>
+
+  <ul class="hero-bullets">
+    <li><span class="bullet-dot"></span>Data Integrations &amp; Analytics</li>
+    <li><span class="bullet-dot"></span>Experimentation</li>
+    <li><span class="bullet-dot"></span>AI Agents for Analytics</li>
+  </ul>
+
+  <a href={calLink} class="btn-primary hero-cta">Talk to Our Team</a>
+
+  <p class="hero-proof">Trusted by industry leaders 100+ Companies</p>
+</section>
+
+<!-- ═══════════════════ SECTION 2 — LOGO CAROUSEL ═══════════════════ -->
+<section class="logos-section">
+  <div class="logo-track">
+    <div class="logo-strip logo-strip--left">
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+    </div>
   </div>
-  <div class="hero-stats">
-    <div>
-      <div class="stat-num">3<span>+</span></div>
-      <div class="stat-label">// TOOL PARTNERSHIPS</div>
-    </div>
-    <div>
-      <div class="stat-num">8<span>wk</span></div>
-      <div class="stat-label">// FASTEST TO LIVE EXPERIMENTS</div>
-    </div>
-    <div>
-      <div class="stat-num">4<span>+</span></div>
-      <div class="stat-label">// EXPERIMENTS / MONTH (ADVANCED)</div>
-    </div>
-    <div>
-      <div class="stat-num">20<span>+</span></div>
-      <div class="stat-label">// HYPOTHESES IN ROADMAP</div>
+  <div class="logo-track">
+    <div class="logo-strip logo-strip--right">
+      {[...logos].reverse().map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+      {[...logos].reverse().map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
     </div>
   </div>
 </section>
 
-<!-- PARTNER STRIP -->
-<div class="partners-strip">
-  <div class="partners-inner">
-    <span class="partners-label">Certified partners</span>
-    <div class="partners-divider"></div>
-    <div class="partners-list">
-      <span class="partner">Amplitude</span>
-      <span class="partner">Statsig</span>
-      <span class="partner">GA4</span>
-      <span class="partner">Mixpanel</span>
-      <span class="partner">PostHog</span>
-      <span class="partner">Heap</span>
-    </div>
-  </div>
-</div>
+<!-- ═══════════════════ SECTION 3 — WHY CHOOSE US ═══════════════════ -->
+<section class="why-section">
+  <div class="why-inner">
+    <p class="label">// WHY CHOOSE US</p>
+    <h2 class="section-h2">Three reasons to work with us</h2>
 
-<!-- ABOUT / MISSION + VISION -->
-<div class="about-wrap" id="about">
-  <div class="about-inner">
-    <div>
-      <p class="label">// WHO WE ARE</p>
-      <h2 class="section-h2">The system<br/>behind your growth.</h2>
-      <p class="section-sub" style="margin-bottom:28px;">
-        Adasight is an AI-native analytics and experimentation agency. We believe data-driven growth shouldn't be reserved for companies with large data teams. We've productized the work of a world-class analytics function — and made it accessible to every growth-stage company.
-      </p>
-      <p class="section-sub">
-        Our delivery is built on a reusable component system: every audit, tracking plan, experiment setup, and insight report follows a documented, repeatable process. AI accelerates the heavy lifting — so you get senior-level outcomes without the headcount.
-      </p>
-    </div>
-    <div class="mv-cards">
-      <div class="mv-card mission">
-        <div class="mv-tag">// MISSION</div>
-        <h3>Close the gap between data and decisions.</h3>
-        <p>Help growth-stage companies build the analytics foundation and experimentation culture they need to grow with confidence — regardless of team size or budget.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <img src="/src/assets/icons/costs.svg" alt="" class="why-icon" />
+        <h3>Drive Revenue &amp; Save Costs</h3>
+        <p>No more bottle necks with data integrations, analytics, experiments.</p>
+        <p class="why-sub">Run smarter A/B tests and experiments that drive measurable impact.</p>
       </div>
-      <div class="mv-card vision">
-        <div class="mv-tag">// VISION</div>
-        <h3>Become the operating system for growth analytics.</h3>
-        <p>The layer that connects data, experimentation, and decisions for the next generation of digital companies — making the traditional consultant obsolete.</p>
+
+      <div class="why-card">
+        <img src="/src/assets/icons/growth.svg" alt="" class="why-icon" />
+        <h3>100+ Companies Supported</h3>
+        <p>We've helped 100+ product and marketing teams</p>
+        <p class="why-sub">Our clients Include Personio, Proof, Rutter API, Candis, Prewave, Sift, Ultraspeaking, and many more.</p>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- SLOGAN -->
-<div class="slogan-wrap">
-  <h2>"From data to decisions."</h2>
-  <p>We replace gut-feel product choices with evidence — systematically, repeatably, at scale.</p>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <p class="label">// HOW IT WORKS</p>
-  <h2 class="section-h2">A system, not a project.</h2>
-  <p class="section-sub">Every engagement follows the same proven framework — from messy data to confident, evidence-backed decisions.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-n">01 // AUDIT</div>
-      <h4>Discovery &amp; Audit</h4>
-      <p>We map your data landscape, assess your stack, and identify what's broken, missing, or unreliable.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">02 // BUILD</div>
-      <h4>Foundation</h4>
-      <p>We implement clean tracking, define your core KPIs, and set up analytics infrastructure your team can trust.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">03 // TEST</div>
-      <h4>Experimentation</h4>
-      <p>We build your hypothesis pipeline, design experiments, and run structured A/B tests with clear decision frameworks.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">04 // SCALE</div>
-      <h4>Ongoing Insight</h4>
-      <p>We stay embedded as your analytics partner — monitoring, iterating, and turning data into recurring business decisions.</p>
+      <div class="why-card">
+        <img src="/src/assets/icons/time.svg" alt="" class="why-icon" />
+        <h3>Top 1% Talent</h3>
+        <p>Our team are practitioners from tech companies like Booking.com, Amplitude, Make.com, Crunchyroll, Gojek and more.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services" style="padding-top:0;">
-  <p class="label">// SERVICES</p>
-  <h2 class="section-h2">Two domains.<br/>One Growth OS.</h2>
-  <p class="section-sub">Whether you need to fix your data foundation or run a full experimentation programme — we have a structured, productized path.</p>
-  <div class="services-grid">
-
-    <div class="service-card">
-      <span class="svc-tag tag-data">Data &amp; Analytics</span>
-      <h3>Analytics Infrastructure &amp; Insight</h3>
-      <p>For companies that need to fix, build, or scale their data foundation. We go from broken tracking to clean, actionable insight — fast.</p>
-      <ul class="pkg-list">
-        <li><span class="arrow">→</span><span><strong>Tier 1 — Data Discovery &amp; Audit</strong> — 1-week landscape assessment</span></li>
-        <li><span class="arrow">→</span><span><strong>Data Foundation Sprint</strong> — Clean tracking and core KPIs in 4 weeks</span></li>
-        <li><span class="arrow">→</span><span><strong>Amplitude Implementation</strong> — Starter and full implementation packages</span></li>
-        <li><span class="arrow">→</span><span><strong>Marketing Analytics Setup</strong> — Connect campaigns to retention and revenue</span></li>
-        <li><span class="arrow">→</span><span><strong>Amplitude AI Readiness</strong> — Prepare your stack for AI-driven decisions</span></li>
-        <li><span class="arrow">→</span><span><strong>Analytics Retainer</strong> — Light · Standard · Enterprise ongoing partnership</span></li>
-      </ul>
+<!-- ═══════════════════ SECTION 4 — METHOD (GAE) ═══════════════════ -->
+<section class="method-wrap">
+  <div class="method-section">
+  <div class="method-inner">
+    <p class="label">// OUR 3 STEP METHOD</p>
+    <h2 class="section-h2">Growth Analytics Engine (GAE) &mdash; Powered by AI</h2>
+    <p class="section-sub">
+      Growth Analytics Engine (GAE) is a system that turns data into confident decisions. It unifies analytics, insights, and experimentation into a feedback loop where our systems help companies scale growth by improving how decisions are made. Revenue impact and ROI come from turning analytics into decisions.
+    </p>
+    <div class="method-image">
+      <img src="/src/assets/icons/3-step-method.svg" alt="3 Step Method — Growth Analytics Engine" />
     </div>
-
-    <div class="service-card">
-      <span class="svc-tag tag-exp">Experimentation</span>
-      <h3>Experimentation Programmes</h3>
-      <p>For teams ready to stop guessing and start testing. We build and run your end-to-end experimentation function — hypothesis to decision.</p>
-      <ul class="pkg-list">
-        <li><span class="arrow">→</span><span><strong>Starter (8 weeks)</strong> — Your first structured experimentation programme</span></li>
-        <li><span class="arrow">→</span><span><strong>Standard (Monthly)</strong> — 2–3 experiments/month with weekly reviews</span></li>
-        <li><span class="arrow">→</span><span><strong>Advanced (6 months)</strong> — 20-hypothesis roadmap, 3–4 experiments/month</span></li>
-        <li><span class="arrow">→</span><span><strong>Statsig Integration</strong> — Full implementation and CDP connector setup</span></li>
-        <li><span class="arrow">→</span><span><strong>Enablement &amp; Training</strong> — Embed experimentation culture in your team</span></li>
-      </ul>
-    </div>
-
+    <a href="/about-us" class="btn-ghost">Learn More</a>
+  </div>
   </div>
 </section>
 
-<!-- TIERS -->
-<section class="section" id="packages" style="padding-top:0;">
-  <p class="label">// EXPERIMENTATION TIERS</p>
-  <h2 class="section-h2">Start where you are.<br/>Scale from there.</h2>
-  <div class="tiers">
-    <div class="tier">
-      <div class="tier-name">Starter</div>
-      <div class="tier-dur">// 8 WEEKS · FIXED SCOPE</div>
-      <div class="tier-desc">For teams running their first experiments. Fast, structured, and focused.</div>
-      <ul class="tier-feats">
-        <li>Qualitative &amp; quantitative audit</li>
-        <li>10-hypothesis prioritised roadmap</li>
-        <li>1–2 experiments designed &amp; run</li>
-        <li>Experiment evaluation framework</li>
-        <li>Enablement session included</li>
-      </ul>
+<!-- ═══════════════════ SECTION 5 — WHO WE HELP ═══════════════════ -->
+<section class="who-section">
+  <div class="who-inner">
+    <p class="label">// WHO WE HELP</p>
+    <h2 class="section-h2">Built for teams that want to turn insights into action</h2>
+    <p class="section-sub">
+      From product, marketing leaders, tech teams to startup founders — Adasight supports those who are serious about clarity, speed, and scaling what works.
+    </p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <img src="/src/assets/icons/product-teams.svg" alt="" class="who-icon" />
+        <h3>Product Teams</h3>
+        <p>We help product teams understand user behavior and prioritize what to build next with reliable tracking, clear insights, and experimentation.</p>
+      </div>
+
+      <div class="who-card">
+        <img src="/src/assets/icons/growth-teams.svg" alt="" class="who-icon" />
+        <h3>Growth Teams</h3>
+        <p>We help marketing teams get reliable attribution, clear funnel visibility, and performance insights across channels, so they know what's actually driving revenue.</p>
+      </div>
+
+      <div class="who-card">
+        <img src="/src/assets/icons/founders.svg" alt="" class="who-icon" />
+        <h3>Founders</h3>
+        <p>We give founders clear, trustworthy visibility into what's driving growth, so they can make confident decisions. We help them focus on the few levers that actually move the business forward.</p>
+      </div>
     </div>
-    <div class="tier featured">
-      <div class="tier-best">Most popular</div>
-      <div class="tier-name">Standard</div>
-      <div class="tier-dur">// MONTHLY · ONGOING</div>
-      <div class="tier-desc">For teams building a repeatable testing rhythm with ongoing expert support.</div>
-      <ul class="tier-feats">
-        <li>2–3 experiments per month</li>
-        <li>High-fidelity variant design (Figma)</li>
-        <li>Weekly alignment &amp; review meetings</li>
-        <li>Ongoing hypothesis pipeline</li>
-        <li>Experiment evaluation &amp; decisions</li>
-        <li>Tracking QA on every test</li>
-      </ul>
-    </div>
-    <div class="tier">
-      <div class="tier-name">Advanced</div>
-      <div class="tier-dur">// 6 MONTHS · FIXED SCOPE</div>
-      <div class="tier-desc">For companies serious about building a scalable experimentation function.</div>
-      <ul class="tier-feats">
-        <li>Full qualitative + quantitative audit</li>
-        <li>20-hypothesis prioritised roadmap</li>
-        <li>3–4 experiments per month</li>
-        <li>Tracking plan recommendations</li>
-        <li>Team enablement &amp; training</li>
-        <li>Weekly results &amp; impact reviews</li>
-      </ul>
+
+    <div class="who-cta">
+      <a href={calLink} class="btn-primary">Let's Talk</a>
     </div>
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
-<div class="icp-section" id="who">
-  <div class="icp-inner">
-    <p class="label">// WHO WE WORK WITH</p>
-    <h2 class="section-h2">Built for growth-stage teams.</h2>
-    <p class="section-sub">We work best with companies that have product-market fit and are ready to scale decisions with data. Minimum 10,000 sessions/day for experimentation.</p>
-    <div class="icp-grid">
-      <div class="icp-card">
-        <div class="icp-emoji">🛍️</div>
-        <h4>E-commerce &amp; D2C</h4>
-        <p>Optimising conversion funnels, cart recovery, and post-purchase flows with structured A/B testing and clean attribution.</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-emoji">📦</div>
-        <h4>B2B SaaS</h4>
-        <p>Improving activation, feature adoption, and retention through product analytics and experiment-driven iteration.</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-emoji">📱</div>
-        <h4>B2C Apps</h4>
-        <p>Building experimentation infrastructure for teams with high traffic and complex user behaviour to act on.</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-emoji">🚀</div>
-        <h4>Growth-Stage Startups</h4>
-        <p>Getting from zero to a reliable data foundation fast — without the cost of an in-house data team.</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-emoji">📊</div>
-        <h4>Teams without a data function</h4>
-        <p>Acting as an embedded analytics partner for companies that need senior data expertise without a full-time hire.</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-emoji">🔬</div>
-        <h4>CRO &amp; Optimisation Teams</h4>
-        <p>Bringing rigour, tooling, and experimentation discipline to teams that already test but want better structure and results.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<section class="cta-wrap" id="contact">
-  <div class="grid-bg"></div>
-  <h2>Ready to turn your data<br/>into <span>decisions</span>?</h2>
-  <p>Book a free discovery call. We'll assess where you are, what's blocking you, and the fastest path to impact.</p>
-  <div class="cta-btns">
-    <a href="mailto:dayana.marin@adasight.com" class="btn-primary">Book a discovery call →</a>
-    <a href="/blog/" class="btn-ghost">Read our blog</a>
-  </div>
-</section>
+<HomePageBottom />
 
 </Base>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+     ═══════════════════════════════════════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 130px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(66, 100, 209, 0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    line-height: 1.4;
+  }
+
+  .hero-h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(46px, 6.5vw, 84px);
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    max-width: 960px;
+    margin-bottom: 26px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .hero-p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .hero-bullets {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin-bottom: 42px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .bullet-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    margin-bottom: 56px;
+  }
+
+  .hero-proof {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTION 2 — LOGO CAROUSEL
+     ═══════════════════════════════════════════════════════════════════ */
+  .logos-section {
+    background: var(--bg2);
+    padding: 48px 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .logo-track {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .logo-strip {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    width: max-content;
+  }
+
+  .logo-strip--left {
+    animation: scrollLeft 60s linear infinite;
+  }
+
+  .logo-strip--right {
+    animation: scrollRight 60s linear infinite;
+  }
+
+  .logo-strip img {
+    height: 40px;
+    width: auto;
+    opacity: 0.5;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+  }
+
+  .logo-strip img:hover {
+    opacity: 0.8;
+  }
+
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTION 3 — WHY CHOOSE US
+     ═══════════════════════════════════════════════════════════════════ */
+  .why-section {
+    padding: 100px 40px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .why-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 52px;
+  }
+
+  .why-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 36px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .why-card:hover {
+    border-color: var(--border);
+    transform: translateY(-3px);
+  }
+
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 22px;
+  }
+
+  .why-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .why-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 8px;
+  }
+
+  .why-sub {
+    font-size: 13px !important;
+    color: var(--text-dim) !important;
+    line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTION 4 — METHOD (GAE)
+     ═══════════════════════════════════════════════════════════════════ */
+  .method-wrap {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .method-section {
+    padding: 100px 40px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .method-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .method-inner .section-sub {
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+
+  .method-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .method-image img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECTION 5 — WHO WE HELP
+     ═══════════════════════════════════════════════════════════════════ */
+  .who-section {
+    padding: 100px 40px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .who-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .who-inner .section-sub {
+    max-width: 620px;
+    margin-bottom: 0;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 52px;
+  }
+
+  .who-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 36px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .who-card:hover {
+    border-color: var(--border);
+    transform: translateY(-3px);
+  }
+
+  .who-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 22px;
+  }
+
+  .who-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .who-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .who-cta {
+    text-align: center;
+    margin-top: 52px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .hero {
+      padding: 110px 24px 60px;
+    }
+
+    .why-section,
+    .method-section,
+    .who-section {
+      padding: 80px 24px;
+    }
+
+    .why-grid,
+    .who-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-bullets {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .hero {
+      padding: 100px 20px 48px;
+      min-height: auto;
+    }
+
+    .hero-h1 {
+      letter-spacing: -1.5px;
+    }
+
+    .hero-p {
+      font-size: 16px;
+    }
+
+    .hero-bullets {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .why-section,
+    .method-section,
+    .who-section {
+      padding: 64px 20px;
+    }
+
+    .why-grid,
+    .who-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .logo-strip img {
+      height: 30px;
+    }
+
+    .logos-section {
+      padding: 32px 0;
+      gap: 20px;
+    }
+  }
+</style>

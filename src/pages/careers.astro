@@ -1,0 +1,467 @@
+---
+import Base from '../layouts/Base.astro';
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
+
+const values = [
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#6CE2FF" stroke-width="1.5"/><path d="M14 20l4 4 8-8" stroke="#6CE2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Learn Forever',
+    desc: 'We are a team of growth enthusiasts committed to continuous learning and evolution. Our aim is to establish a lasting legacy in the Growth Industry.',
+  },
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="8" stroke="#6CE2FF" stroke-width="1.5"/><path d="M14 24l4-6 4 3 4-7" stroke="#6CE2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Speak Your Mind',
+    desc: 'Real people, true empathy, openness & straightforward way of thinking while being authentic.',
+  },
+  {
+    icon: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 8v24M8 20h24" stroke="#6CE2FF" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="20" r="8" stroke="#6CE2FF" stroke-width="1.5"/></svg>`,
+    title: 'Embrace Ownership',
+    desc: 'Empowering the team, autonomy where everyone is encouraged to creatively solve problems.',
+  },
+];
+
+const benefits = [
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#4ADEAA" stroke-width="1.5"/><path d="M10 16h12M16 10v12" stroke="#4ADEAA" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    title: 'Flexible Working Hours',
+    desc: 'We work asynchronously, using modern tools that allow us to align from APAC to EMEA and the US.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="4" stroke="#4ADEAA" stroke-width="1.5"/><circle cx="16" cy="16" r="3" stroke="#4ADEAA" stroke-width="1.5"/></svg>`,
+    title: 'Support for Remote Work',
+    desc: 'Work from anywhere in the world. Adasight is a remote-first company.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 24V12l8-6 8 6v12H8z" stroke="#4ADEAA" stroke-width="1.5" stroke-linejoin="round"/><rect x="13" y="18" width="6" height="6" stroke="#4ADEAA" stroke-width="1.5"/></svg>`,
+    title: 'Specialized Trainings',
+    desc: 'We work with the best analytics tools in the market and offer specialised trainings of Amplitude and Braze, among others.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9l3-9z" stroke="#4ADEAA" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+    title: 'Be Pioneer in Growth Industry',
+    desc: 'Build Adasight together and join us in our mission to create Blueprints and challenge the world of Growth.',
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#4ADEAA" stroke-width="1.5"/><path d="M12 16l3 3 5-6" stroke="#4ADEAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Competitive Salary',
+    desc: 'We offer a competitive salary, and also the opportunity to grow together with us.',
+  },
+];
+
+const openings = [
+  {
+    department: 'Product',
+    location: 'Remote',
+    title: 'Trainee Integration, Analytics & Automation',
+    description: 'We are seeking enthusiastic and motivated individuals to join our Implementation & Analytics squad as trainees. This role offers hands-on experience in behavioral analytics, tracking, and A/B testing. You will also be introduced to emerging workflows in AI and automation.',
+  },
+];
+---
+
+<Base
+  title="Careers — Adasight"
+  description="Be part of a remote-first team of innovators! Join Adasight and help startups and scale-ups unlock growth with data."
+  canonicalPath="/careers"
+>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="careers-hero">
+  <div class="grid-bg"></div>
+  <div class="careers-hero-inner">
+    <p class="label">// CAREERS</p>
+    <h1>Join Our Team</h1>
+    <p class="hero-desc">Adasight helps startups and scale-ups unlock their growth potential with the help of data. As an interdisciplinary team we bridge growth methodologies with technical expertise and execution.</p>
+    <a href="#open-roles" class="btn-primary">View open roles</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ VALUES ═══════════════════ -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="values-grid">
+      {values.map((v) => (
+        <div class="value-card">
+          <div class="value-icon" set:html={v.icon} />
+          <h3>{v.title}</h3>
+          <p>{v.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OPEN ROLES ═══════════════════ -->
+<section class="roles-section" id="open-roles">
+  <div class="roles-inner">
+    <p class="label">// OPEN POSITIONS</p>
+    <h2>Current Openings</h2>
+
+    {openings.length > 0 ? (
+      <div class="roles-list">
+        {openings.map((job) => (
+          <div class="role-card">
+            <div class="role-meta">
+              <span class="role-dept">{job.department}</span>
+              <span class="role-location">{job.location}</span>
+            </div>
+            <h3 class="role-title">{job.title}</h3>
+            <p class="role-desc">{job.description}</p>
+            <a href={`mailto:hello@adasight.com?subject=Application: ${job.title}`} class="btn-outline">Apply Now</a>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div class="no-roles">
+        <p>No open positions at the moment. Check back soon or send us a speculative application.</p>
+      </div>
+    )}
+
+    <div class="speculative">
+      <p>Don't see a role that fits? We're always looking for talented people.</p>
+      <a href="mailto:hello@adasight.com?subject=Speculative Application" class="btn-primary">Send us your CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BENEFITS ═══════════════════ -->
+<section class="benefits-section">
+  <div class="benefits-inner">
+    <p class="label">// PERKS</p>
+    <h2>Benefits of Working With Us</h2>
+    <div class="benefits-grid">
+      {benefits.map((b) => (
+        <div class="benefit-card">
+          <div class="benefit-icon" set:html={b.icon} />
+          <h3>{b.title}</h3>
+          <p>{b.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="careers-cta">
+  <div class="cta-inner">
+    <h2>Ready to Make an Impact?</h2>
+    <p>Join a remote-first team of growth practitioners from companies like Booking.com, Amplitude, Meta, and Crunchyroll.</p>
+    <div class="cta-btns">
+      <a href="#open-roles" class="btn-primary">View Open Roles</a>
+      <a href={calLink} target="_blank" rel="noopener" class="btn-outline">Book a Chat</a>
+    </div>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  /* ─── Hero ─── */
+  .careers-hero {
+    position: relative;
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(66, 100, 209, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66, 100, 209, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 30%, transparent 100%);
+    pointer-events: none;
+  }
+  .careers-hero-inner {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .8125rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .careers-hero h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+  .hero-desc {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ─── Buttons ─── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .875rem 2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: .9375rem;
+    border-radius: 80px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    background: var(--blue-light);
+    transform: translateY(-1px);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .875rem 2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: .9375rem;
+    border-radius: 80px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color .2s, color .2s, transform .15s;
+    text-decoration: none;
+  }
+  .btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--cyan);
+    transform: translateY(-1px);
+  }
+
+  /* ─── Values ─── */
+  .values-section {
+    padding: 4rem 2rem 5rem;
+  }
+  .values-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .value-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    transition: border-color .25s;
+  }
+  .value-card:hover {
+    border-color: var(--blue);
+  }
+  .value-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .value-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: .75rem;
+  }
+  .value-card p {
+    font-size: .9375rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  /* ─── Open Roles ─── */
+  .roles-section {
+    padding: 5rem 2rem;
+    background: var(--bg2);
+  }
+  .roles-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .roles-inner h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--text);
+    margin-bottom: 2.5rem;
+  }
+  .roles-list {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: left;
+  }
+  .role-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color .25s;
+  }
+  .role-card:hover {
+    border-color: var(--blue);
+  }
+  .role-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .role-dept,
+  .role-location {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .25rem .75rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--cyan);
+  }
+  .role-title {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: var(--text);
+    margin-bottom: .75rem;
+  }
+  .role-desc {
+    font-size: .9375rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .no-roles {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+  }
+  .speculative {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-muted);
+  }
+  .speculative p {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+
+  /* ─── Benefits ─── */
+  .benefits-section {
+    padding: 5rem 2rem 6rem;
+  }
+  .benefits-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .benefits-inner h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--text);
+    margin-bottom: 2.5rem;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .benefit-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    transition: border-color .25s;
+  }
+  .benefit-card:hover {
+    border-color: var(--green);
+  }
+  .benefit-icon {
+    margin-bottom: .75rem;
+  }
+  .benefit-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: .5rem;
+  }
+  .benefit-card p {
+    font-size: .875rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* ─── CTA ─── */
+  .careers-cta {
+    padding: 5rem 2rem 6rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  }
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-inner h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .cta-inner > p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+  .cta-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px) {
+    .careers-hero { padding: 8rem 1.5rem 4rem; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 580px) {
+    .careers-hero { padding: 7rem 1rem 3rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .roles-section { padding: 3rem 1rem; }
+    .benefits-section { padding: 3rem 1rem 4rem; }
+    .careers-cta { padding: 3rem 1rem 4rem; }
+    .role-card { padding: 1.5rem; }
+  }
+</style>

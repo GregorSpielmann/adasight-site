@@ -1,0 +1,261 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-grid">
+      <!-- Brand column -->
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">Ada<span class="cyan">sight</span></div>
+        <p class="footer-address">Global Remote Team</p>
+        <a href="mailto:hello@adasight.com" class="footer-email">hello@adasight.com</a>
+        <div class="footer-badge">
+          <img src="/src/assets/logos/amplitude-certified-badge.svg" alt="Amplitude Certified Partner" class="amplitude-badge" />
+        </div>
+      </div>
+
+      <!-- Main links -->
+      <div class="footer-col">
+        <h4 class="footer-col-header">Main</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/success-stories">Success Stories</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resources">Toolkit</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+          <li><a href="/contact-us">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Expertise -->
+      <div class="footer-col">
+        <h4 class="footer-col-header">Expertise</h4>
+        <ul class="footer-links">
+          <li><a href="/data-infrastructure-tech-for-marketing-product-teams">Measurement</a></li>
+          <li><a href="/integrated-product-marketing-analytics">Advanced Analytics</a></li>
+          <li><a href="/growth-experimentation-services">Experimentation &amp; Growth</a></li>
+        </ul>
+      </div>
+
+      <!-- Tech Partners -->
+      <div class="footer-col">
+        <h4 class="footer-col-header">Tech Partners</h4>
+        <ul class="footer-links">
+          <li><a href="/partner/posthog">PostHog</a></li>
+          <li><a href="/partner/mixpanel">Mixpanel</a></li>
+          <li><a href="/partner/statsig">Statsig</a></li>
+          <li><a href="/partner/segment">Segment</a></li>
+          <li><a href="/partner/amplitude">Amplitude</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-col">
+        <h4 class="footer-col-header">Social</h4>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/adasight_hq/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://nl.linkedin.com/company/adasight-com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://youtube.com/@adasight-academy" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copyright">&copy; {currentYear} Adasight. All rights reserved.</p>
+    <div class="footer-legal-links">
+      <a href="/legal">Privacy Policy</a>
+      <a href="/legal">Terms of Service</a>
+      <a href="/legal">Cookies Settings</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ── Footer container ────────────────────────────── */
+  .site-footer {
+    background: #0d0c22;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* ── Top section ─────────────────────────────────── */
+  .footer-top {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 64px 60px 48px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 0.8fr;
+    gap: 40px;
+  }
+
+  /* ── Brand column ────────────────────────────────── */
+  .footer-logo {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: #F0F2FF;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo .cyan {
+    color: #6CE2FF;
+  }
+
+  .footer-address {
+    font-size: 13px;
+    color: #4A5080;
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+
+  .footer-email {
+    font-size: 13px;
+    color: #4A5080;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .footer-email:hover {
+    color: #8890B8;
+  }
+
+  .footer-badge {
+    margin-top: 4px;
+  }
+
+  .amplitude-badge {
+    height: 48px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .amplitude-badge:hover {
+    opacity: 1;
+  }
+
+  /* ── Column headers ──────────────────────────────── */
+  .footer-col-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #4A5080;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  /* ── Links ───────────────────────────────────────── */
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: #4A5080;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #8890B8;
+  }
+
+  /* ── Bottom bar ──────────────────────────────────── */
+  .footer-bottom {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copyright {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #4A5080;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-legal-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #4A5080;
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-legal-links a:hover {
+    color: #8890B8;
+  }
+
+  /* ── Responsive ──────────────────────────────────── */
+  @media (max-width: 960px) {
+    .footer-top {
+      padding: 48px 24px 40px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 36px;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .footer-top {
+      padding: 40px 20px 32px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+
+    .footer-bottom {
+      padding: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-legal-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

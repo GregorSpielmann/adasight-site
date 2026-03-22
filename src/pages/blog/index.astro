@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => (b.data.date || b.data.publishDate || new Date()).valueOf() - (a.data.date || a.data.publishDate || new Date()).valueOf());
 
 const categories = ['All', ...new Set(posts.map(p => p.data.category))];
 ---
@@ -38,7 +38,7 @@ const categories = ['All', ...new Set(posts.map(p => p.data.category))];
             <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
             <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.6;">{post.data.description}</p>
             <div class="blog-card-meta">
-              {post.data.author} · {post.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+              {post.data.author} · {(post.data.date || post.data.publishDate || new Date()).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
             </div>
           </div>
         </article>

@@ -1,0 +1,220 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  term: string;
+  definition: string;
+  category: string;
+  relatedTerms?: string[];
+}
+
+const { term, definition, category, relatedTerms = [] } = Astro.props;
+---
+
+<Base
+  title={`${term} — Analytics Glossary — Adasight`}
+  description={definition}
+>
+  <article class="glossary-layout">
+    <!-- Header -->
+    <div class="glossary-header">
+      <a href="/glossary/" class="glossary-back">&#8592; Glossary</a>
+      <span class="glossary-cat">{category}</span>
+      <h1>{term}</h1>
+      <p class="glossary-def">{definition}</p>
+    </div>
+
+    <!-- Content -->
+    <div class="glossary-content">
+      <slot />
+    </div>
+
+    <!-- Related Terms -->
+    {relatedTerms.length > 0 && (
+      <div class="glossary-related">
+        <h3>Related Terms</h3>
+        <div class="related-list">
+          {relatedTerms.map(rt => (
+            <a href={`/glossary/${rt}/`} class="related-pill">{rt.replace(/-/g, ' ')}</a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- CTA -->
+    <div class="glossary-cta">
+      <p class="label">// NEED HELP WITH THIS?</p>
+      <h2>Let us handle the implementation</h2>
+      <p class="glossary-cta-sub">From tracking plans to dashboards — we set up analytics and experimentation systems you can trust.</p>
+      <a href="/contact-us" class="btn-primary">Book a Free Call &rarr;</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .glossary-layout {
+    width: 100%;
+  }
+
+  /* ─── Header ─── */
+  .glossary-header {
+    text-align: center;
+    padding: 10rem 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .glossary-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .glossary-back:hover {
+    color: var(--cyan);
+  }
+  .glossary-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .glossary-header h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+  }
+  .glossary-def {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ─── Content ─── */
+  .glossary-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .glossary-content :global(h2) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.5px;
+  }
+  .glossary-content :global(h3) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 2rem 0 0.75rem;
+  }
+  .glossary-content :global(p) {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 16px;
+  }
+  .glossary-content :global(ul),
+  .glossary-content :global(ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .glossary-content :global(li) {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  .glossary-content :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .glossary-content :global(code) {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9em;
+    background: var(--bg3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--cyan);
+  }
+
+  /* ─── Related ─── */
+  .glossary-related {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+  .glossary-related h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .related-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .related-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .related-pill:hover {
+    border-color: var(--blue);
+    color: var(--cyan);
+  }
+
+  /* ─── CTA ─── */
+  .glossary-cta {
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .glossary-cta h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .glossary-cta-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 580px) {
+    .glossary-header {
+      padding: 8rem 1.25rem 2rem;
+    }
+    .glossary-def {
+      font-size: 16px;
+    }
+  }
+</style>

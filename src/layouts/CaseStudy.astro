@@ -1,0 +1,335 @@
+---
+import Base from './Base.astro';
+
+export interface Props {
+  title: string;
+  client: string;
+  industry: string;
+  tag: string;
+  result: string;
+  description: string;
+  challenge?: string;
+  solution?: string;
+  results?: string[];
+  testimonialQuote?: string;
+  testimonialAuthor?: string;
+  testimonialRole?: string;
+  logo?: string;
+}
+
+const {
+  title,
+  client,
+  industry,
+  tag,
+  result,
+  description,
+  challenge,
+  solution,
+  results = [],
+  testimonialQuote,
+  testimonialAuthor,
+  testimonialRole,
+  logo,
+} = Astro.props;
+---
+
+<Base
+  title={`${client} Case Study — Adasight`}
+  description={description}
+>
+  <article class="cs-layout">
+    <!-- Header -->
+    <div class="cs-header">
+      <a href="/success-stories/" class="cs-back">&#8592; Success Stories</a>
+      <div class="cs-meta-row">
+        <span class="cs-tag">{tag}</span>
+        <span class="cs-industry">{industry}</span>
+      </div>
+      <h1>{title}</h1>
+      <p class="cs-result-badge">{result}</p>
+    </div>
+
+    <!-- Key Info Cards -->
+    {(challenge || solution || results.length > 0) && (
+      <div class="cs-summary">
+        {challenge && (
+          <div class="cs-summary-card">
+            <h3>The Challenge</h3>
+            <p>{challenge}</p>
+          </div>
+        )}
+        {solution && (
+          <div class="cs-summary-card">
+            <h3>The Solution</h3>
+            <p>{solution}</p>
+          </div>
+        )}
+        {results.length > 0 && (
+          <div class="cs-summary-card cs-summary-results">
+            <h3>Key Results</h3>
+            <ul>
+              {results.map(r => <li>{r}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class="cs-content">
+      <slot />
+    </div>
+
+    <!-- Testimonial -->
+    {testimonialQuote && (
+      <div class="cs-testimonial">
+        <blockquote>
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <path d="M10 11H6.1c.1-3.5 1.4-5 4.9-5.2V3C5.2 3.3 2 6 2 13v8h8V11zm12 0h-3.9c.1-3.5 1.4-5 4.9-5.2V3c-5.8.3-9 3-9 10v8h8V11z" fill="rgba(108,226,255,0.25)"/>
+          </svg>
+          <p class="cs-quote-text">{testimonialQuote}</p>
+          {(testimonialAuthor || testimonialRole) && (
+            <footer class="cs-quote-footer">
+              {testimonialAuthor && <span class="cs-quote-author">{testimonialAuthor}</span>}
+              {testimonialRole && <span class="cs-quote-role">{testimonialRole}</span>}
+            </footer>
+          )}
+        </blockquote>
+      </div>
+    )}
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <p class="label">// YOUR STORY IS NEXT</p>
+      <h2>Ready to join them?</h2>
+      <p class="cs-cta-sub">Book a free 30-minute analytics audit and see how we can help your team grow.</p>
+      <a href="/contact-us" class="btn-primary">Book a Free Call &rarr;</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .cs-layout {
+    width: 100%;
+  }
+
+  /* ─── Header ─── */
+  .cs-header {
+    text-align: center;
+    padding: 10rem 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .cs-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .cs-back:hover {
+    color: var(--cyan);
+  }
+  .cs-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .cs-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .cs-industry {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .cs-header h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  .cs-result-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green);
+    background: rgba(74, 222, 170, 0.1);
+    padding: 8px 20px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  /* ─── Summary Cards ─── */
+  .cs-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  .cs-summary-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+  .cs-summary-card h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.75rem;
+  }
+  .cs-summary-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .cs-summary-results ul {
+    padding-left: 1rem;
+  }
+  .cs-summary-results li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+    list-style: disc;
+  }
+
+  /* ─── Content ─── */
+  .cs-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  .cs-content :global(h2) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.5px;
+  }
+  .cs-content :global(h3) {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 2rem 0 0.75rem;
+  }
+  .cs-content :global(p) {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 16px;
+  }
+  .cs-content :global(ul),
+  .cs-content :global(ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .cs-content :global(li) {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    list-style: disc;
+  }
+  .cs-content :global(ol li) {
+    list-style: decimal;
+  }
+  .cs-content :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ─── Testimonial ─── */
+  .cs-testimonial {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  .cs-testimonial blockquote {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
+  .quote-icon {
+    margin-bottom: 1rem;
+  }
+  .cs-quote-text {
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .cs-quote-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .cs-quote-author {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .cs-quote-role {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ─── CTA ─── */
+  .cs-cta {
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .cs-cta h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .cs-cta-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 580px) {
+    .cs-header {
+      padding: 8rem 1.25rem 2rem;
+    }
+    .cs-testimonial blockquote {
+      padding: 1.75rem;
+    }
+    .cs-quote-text {
+      font-size: 16px;
+    }
+  }
+</style>

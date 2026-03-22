@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Enterprise-Grade Experimentation",
+    description: "Run experiments at scale with Statsig's powerful statistical engine. From simple A/B tests to complex multi-armed bandits, get reliable results that drive confident product decisions.",
+  },
+  {
+    title: "Feature Gates & Dynamic Config",
+    description: "Ship features safely with Statsig's feature gates and dynamic configuration. Control rollouts, target specific segments, and instantly roll back if something goes wrong.",
+  },
+  {
+    title: "Warehouse-Native Analytics",
+    description: "Keep your data in your warehouse while leveraging Statsig's analytics layer. Get real-time metrics, automated pulse checks, and deep performance insights without duplicating your data.",
+  },
+];
+
+const services = [
+  {
+    label: "// Experimentation Framework",
+    heading: "Build a scalable experimentation program",
+    description: "We help you establish an experimentation framework that scales with your organization. From defining metrics taxonomies to setting up guardrail metrics, we ensure every experiment contributes to reliable, compounding growth.",
+  },
+  {
+    label: "// Implementation",
+    heading: "Get Statsig integrated end-to-end",
+    description: "Statsig's full potential requires thoughtful integration with your stack. We handle SDK setup, warehouse connections, metric definitions, and team permissions so your organization can start experimenting within weeks, not months.",
+  },
+  {
+    label: "// Advanced Analytics",
+    heading: "Go beyond basic test results",
+    description: "We leverage Statsig's analytics capabilities to run deep-dive analyses on experiment results, segment performance, and long-term metric impact. Our team translates statistical outputs into clear business recommendations.",
+  },
+  {
+    label: "// Team Enablement",
+    heading: "Make experimentation a team sport",
+    description: "The best experimentation programs are democratized across product, engineering, and growth teams. We train your teams on Statsig best practices, hypothesis design, and results interpretation to build lasting internal capability.",
+  },
+];
+---
+
+<PartnerPage
+  title="Statsig Experimentation Partner — Adasight"
+  metaDescription="Unlock the full potential of Statsig with Adasight's experimentation consulting. From setup to advanced analytics, we help you build a world-class experimentation program."
+  partnerName="Statsig"
+  heroLabel="// Partner — Statsig"
+  heroHeading="Experimentation Infrastructure for Growth"
+  heroDescription="Statsig provides the experimentation and feature management infrastructure trusted by the world's fastest-growing companies. Build a culture of data-driven shipping with reliable experiments, feature gates, and real-time analytics."
+  pillars={pillars}
+  valueHeading="Get the full value out of Statsig"
+  valueDescription="Whether you need to set up your first experiment or scale to thousands of concurrent tests, Adasight's senior experimentation experts will help you build a robust, reliable experimentation program on Statsig."
+  services={services}
+  ctaHeading="Adasight + Statsig"
+  ctaDescription="Adasight is your go-to partner for growth, specializing in experimentation infrastructure and data-driven product development. We provide companies with top-class frameworks to thrive."
+/>

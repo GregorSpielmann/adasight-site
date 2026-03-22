@@ -1,0 +1,24 @@
+---
+import GlossaryTerm from '../../layouts/GlossaryTerm.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const terms = await getCollection('glossary', ({ data }) => !data.draft);
+  return terms.map(term => ({
+    params: { slug: term.id },
+    props: { term },
+  }));
+}
+
+const { term } = Astro.props;
+const { Content } = await render(term);
+---
+
+<GlossaryTerm
+  term={term.data.term}
+  definition={term.data.definition}
+  category={term.data.category}
+  relatedTerms={term.data.relatedTerms}
+>
+  <Content />
+</GlossaryTerm>

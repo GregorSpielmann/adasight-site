@@ -1,0 +1,82 @@
+---
+import ExpertisePage from '../../layouts/ExpertisePage.astro';
+
+const problems = [
+  { text: "Your team spends hours manually pulling reports and building dashboards instead of focusing on strategic analysis and decision-making." },
+  { text: "Critical insights are buried in data that no one has time to explore, causing you to miss trends, anomalies, and growth opportunities." },
+  { text: "Stakeholders across the company ask repetitive analytics questions, creating a bottleneck on your data and product teams." },
+  { text: "You lack the infrastructure to turn AI and automation capabilities into practical, day-to-day analytics workflows." },
+];
+
+const serviceSections = [
+  {
+    label: "// AI-Powered Analytics",
+    heading: "Automate Your Analytics Workflow with AI Agents",
+    description: "Deploy intelligent agents that handle routine analytics tasks, freeing your team to focus on strategy and decision-making.",
+    cards: [
+      {
+        title: "Automated Insight Generation",
+        description: "AI agents continuously analyze your data to surface trends, anomalies, and opportunities — delivering insights before you even think to ask.",
+      },
+      {
+        title: "Natural Language Querying",
+        description: "Allow anyone on your team to ask analytics questions in plain English and get instant, accurate answers powered by your actual data.",
+      },
+      {
+        title: "Automated Report Generation",
+        description: "Set up AI agents to automatically generate and distribute regular reports, KPI updates, and performance summaries to stakeholders.",
+      },
+    ],
+  },
+  {
+    label: "// Intelligent Monitoring",
+    heading: "Proactive Monitoring & Alerting",
+    description: "Stop reacting to problems after the damage is done. AI agents monitor your metrics 24/7 and alert you when something needs attention.",
+    cards: [
+      {
+        title: "Anomaly Detection",
+        description: "AI agents learn your data patterns and proactively alert you to unexpected changes in metrics, user behavior, or conversion rates.",
+      },
+      {
+        title: "KPI Monitoring Agents",
+        description: "Deploy dedicated agents that track your key performance indicators and provide context-rich alerts when metrics deviate from expected ranges.",
+      },
+      {
+        title: "Competitive & Market Intelligence",
+        description: "Use AI agents to monitor market trends, competitor activity, and industry benchmarks to keep your strategy informed and adaptive.",
+      },
+    ],
+  },
+  {
+    label: "// Custom AI Solutions",
+    heading: "Custom AI Agent Development",
+    description: "We build bespoke AI agents tailored to your specific analytics needs, data stack, and business workflows.",
+    cards: [
+      {
+        title: "Custom Agent Architecture",
+        description: "Design and build AI agent systems that integrate with your existing data infrastructure, tools, and workflows for seamless adoption.",
+      },
+      {
+        title: "Data Pipeline Automation",
+        description: "Automate data collection, transformation, and enrichment processes with intelligent agents that maintain data quality at scale.",
+      },
+      {
+        title: "Predictive Analytics Agents",
+        description: "Deploy AI agents that use your historical data to forecast trends, predict user behavior, and recommend optimal actions.",
+      },
+    ],
+  },
+];
+---
+
+<ExpertisePage
+  title="AI Agents for Analytics — Adasight"
+  metaDescription="Deploy AI agents that automate your analytics workflows, surface insights proactively, and empower every team member with data-driven answers on demand."
+  heroLabel="// Expertise — AI Agents for Analytics"
+  heroHeading="AI Agents for Analytics"
+  heroDescription="Deploy intelligent AI agents that automate your analytics workflows, surface insights proactively, and empower every team member with instant, data-driven answers. Turn your data into a self-service intelligence layer."
+  problemsHeading="Drowning in data, starving for insights?"
+  problemsDescription="Manual analytics workflows can't keep up with the pace of modern business. AI agents bridge the gap between your data and the decisions that drive growth."
+  problems={problems}
+  serviceSections={serviceSections}
+/>

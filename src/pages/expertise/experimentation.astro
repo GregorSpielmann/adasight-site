@@ -1,0 +1,82 @@
+---
+import ExpertisePage from '../../layouts/ExpertisePage.astro';
+
+const problems = [
+  { text: "Struggling to identify UX issues and engagement drop-offs that are hurting your product's performance and user satisfaction." },
+  { text: "Difficulty identifying the highest-impact growth opportunities and knowing which levers to pull for maximum results." },
+  { text: "Uncertain how to implement A/B tests properly, leading to inconclusive results and wasted development resources." },
+  { text: "Overwhelmed by the complexity of building a structured experimentation program that integrates with your existing workflows." },
+];
+
+const serviceSections = [
+  {
+    label: "// UX Audits",
+    heading: "Improve User Experience with Structured Audits",
+    description: "Uncover hidden friction points and turn them into growth opportunities with systematic UX and data audits.",
+    cards: [
+      {
+        title: "Initial Website/App UX Audit",
+        description: "Conduct a comprehensive audit of your website or app to identify usability issues, friction points, and opportunities for improvement.",
+      },
+      {
+        title: "Growth Opportunity Identification",
+        description: "Analyze your product data to identify the highest-impact growth opportunities and prioritize experiments that move the needle.",
+      },
+      {
+        title: "Hypothesis Formulation",
+        description: "Develop data-backed hypotheses for experiments based on user behavior insights, best practices, and your specific business context.",
+      },
+    ],
+  },
+  {
+    label: "// Experiment Execution",
+    heading: "Optimize Through Targeted Experiments",
+    description: "Design and run rigorous experiments that deliver statistically valid insights to guide your product and growth decisions.",
+    cards: [
+      {
+        title: "Experiment Design",
+        description: "Design experiments with proper statistical rigor, including sample size calculations, success metrics definition, and test duration planning.",
+      },
+      {
+        title: "Experimentation Program",
+        description: "Build and manage a structured experimentation program with a prioritized backlog, regular cadence, and clear reporting frameworks.",
+      },
+      {
+        title: "Growth Metrics Analysis",
+        description: "Analyze experiment results against your key growth metrics to understand impact and inform future optimization strategies.",
+      },
+    ],
+  },
+  {
+    label: "// Continuous Growth",
+    heading: "Leverage Data for Continuous Growth",
+    description: "Build a culture of experimentation that compounds over time, turning every insight into your next competitive advantage.",
+    cards: [
+      {
+        title: "Data-Driven Decision Making",
+        description: "Establish processes and frameworks that ensure every major product and marketing decision is backed by experimental evidence.",
+      },
+      {
+        title: "Ongoing Experimentation Support",
+        description: "Get continuous support for running experiments, including test implementation, QA, monitoring, and results analysis.",
+      },
+      {
+        title: "Comprehensive Growth Strategy",
+        description: "Develop a holistic growth strategy that combines experimentation insights with analytics to create a sustainable growth engine.",
+      },
+    ],
+  },
+];
+---
+
+<ExpertisePage
+  title="Experimentation — Adasight"
+  metaDescription="Implement structured A/B testing and data-driven experimentation methodologies to drive measurable growth for your product and marketing teams."
+  heroLabel="// Expertise — Experimentation"
+  heroHeading="Experimentation-as-a-Service for Growth Teams"
+  heroDescription="Implement structured A/B testing and data-driven methodologies across your product and marketing teams. We help you build a culture of experimentation that drives measurable, compounding growth."
+  problemsHeading="Battling these growth problems?"
+  problemsDescription="Running experiments without a clear framework leads to wasted resources, inconclusive results, and missed growth opportunities."
+  problems={problems}
+  serviceSections={serviceSections}
+/>

@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Open-Source Product Analytics",
+    description: "PostHog gives you full control over your data with a self-hosted or cloud option. Track events, analyze funnels, and understand user behavior without compromising on data privacy.",
+  },
+  {
+    title: "Session Recordings & Heatmaps",
+    description: "Watch real user sessions and visualize engagement through heatmaps. Identify UX issues, understand drop-off points, and validate product hypotheses with direct evidence.",
+  },
+  {
+    title: "Built-in Feature Flags & Experiments",
+    description: "Ship features with confidence using PostHog's integrated feature flags and A/B testing. Run experiments directly in your analytics platform without stitching tools together.",
+  },
+];
+
+const services = [
+  {
+    label: "// Data Strategy",
+    heading: "Align your tracking with growth goals",
+    description: "We help you define a tracking plan that maps directly to your growth model. From event taxonomy to user properties, we ensure your PostHog implementation captures the data that matters for decision-making.",
+  },
+  {
+    label: "// Implementation",
+    heading: "Get PostHog set up the right way",
+    description: "Whether self-hosted or cloud, PostHog setup requires thoughtful configuration. We handle the end-to-end implementation, including SDKs, data pipelines, and integrations with your existing stack to get you up and running fast.",
+  },
+  {
+    label: "// Analytics & Insights",
+    heading: "Turn raw events into actionable insights",
+    description: "PostHog captures a wealth of data, but extracting insights requires expertise. We build dashboards, run cohort analyses, and deliver regular insight reports that connect product behavior to business outcomes.",
+  },
+  {
+    label: "// Experimentation",
+    heading: "Run experiments that drive real impact",
+    description: "Leverage PostHog's experimentation features to test hypotheses and ship winning variants. We design experiment frameworks, define success metrics, and help your team build a culture of data-driven iteration.",
+  },
+];
+---
+
+<PartnerPage
+  title="PostHog Analytics Partner — Adasight"
+  metaDescription="Get the most out of PostHog with Adasight's expert consulting. From implementation to advanced analytics and experimentation, we help you turn PostHog data into growth."
+  partnerName="PostHog"
+  heroLabel="// Partner — PostHog"
+  heroHeading="Open-Source Analytics That Scales"
+  heroDescription="PostHog combines product analytics, session recordings, feature flags, and A/B testing in one open-source platform. Get full control over your data while gaining the insights you need to build better products and grow faster."
+  pillars={pillars}
+  valueHeading="Get the full value out of PostHog"
+  valueDescription="Whether you need a complete PostHog setup, advanced analytics support, or experimentation strategy, Adasight's team of senior analytics experts will extend your capabilities and turn your product data into growth strategy."
+  services={services}
+  ctaHeading="Adasight + PostHog"
+  ctaDescription="Adasight is your go-to partner for growth, specializing in analytics for product, and marketing strategy. We provide companies with top-class frameworks to thrive."
+/>

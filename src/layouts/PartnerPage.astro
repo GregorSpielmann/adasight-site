@@ -1,0 +1,664 @@
+---
+import Base from './Base.astro';
+
+export interface PillarCard {
+  title: string;
+  description: string;
+}
+
+export interface ServiceBlock {
+  label: string;
+  heading: string;
+  description: string;
+}
+
+export interface Props {
+  title: string;
+  metaDescription: string;
+  partnerName: string;
+  heroLabel: string;
+  heroHeading: string;
+  heroDescription: string;
+  pillars: PillarCard[];
+  valueHeading: string;
+  valueDescription: string;
+  services: ServiceBlock[];
+  ctaHeading: string;
+  ctaDescription: string;
+}
+
+const {
+  title,
+  metaDescription,
+  partnerName,
+  heroLabel,
+  heroHeading,
+  heroDescription,
+  pillars,
+  valueHeading,
+  valueDescription,
+  services,
+  ctaHeading,
+  ctaDescription,
+} = Astro.props;
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
+
+const logos = [
+  'notarize', 'prewave', 'complete-sleep', 'tradezella', 'sift', 'bywit',
+  'tonic', 'templa', 'candis', 'personio', 'responsescribe', 'gravystack',
+  'morrow', 'navlin', 'betdex', 'healthplans', 'rutter',
+];
+---
+
+<Base title={title} description={metaDescription}>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="ptr-hero">
+  <div class="grid-bg"></div>
+  <div class="ptr-hero-inner">
+    <p class="label">{heroLabel}</p>
+    <h1 class="ptr-hero-h1">{heroHeading}</h1>
+    <p class="ptr-hero-desc">{heroDescription}</p>
+    <a href={calLink} class="btn-primary">Book a Strategy Call</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+<section class="ptr-logos-section">
+  <p class="ptr-logos-label">Trusted by 100+ founders and growth teams at</p>
+  <div class="ptr-logo-track">
+    <div class="ptr-logo-strip">
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+      {logos.map((name) => (
+        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PILLARS ═══════════════════ -->
+<section class="ptr-pillars">
+  <div class="ptr-pillars-inner">
+    <div class="ptr-pillars-grid">
+      {pillars.map((pillar) => (
+        <div class="ptr-pillar-card">
+          <h3>{pillar.title}</h3>
+          <p>{pillar.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VALUE PROPOSITION ═══════════════════ -->
+<section class="ptr-value">
+  <div class="ptr-value-inner">
+    <p class="label">// Why {partnerName} + Adasight</p>
+    <h2 class="section-h2">{valueHeading}</h2>
+    <p class="section-sub">{valueDescription}</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ QUOTE ═══════════════════ -->
+<section class="ptr-quote-section">
+  <div class="ptr-quote-inner">
+    <blockquote class="ptr-quote">
+      "Today 80% of high growth companies see the speed of learning and iterations as their competitive edge."
+    </blockquote>
+    <div class="ptr-quote-attribution">
+      <p class="ptr-quote-text">"We are a team of Senior Advisors, combining expertise in Product, Marketing, and Growth. We understand each area's unique needs and work together to achieve success."</p>
+      <div class="ptr-quote-authors">
+        <div class="ptr-quote-author">
+          <span class="ptr-quote-name">Gregor Spielmann</span>
+          <span class="ptr-quote-role">Cofounder at Adasight & ex-Amplitude</span>
+        </div>
+        <div class="ptr-quote-author">
+          <span class="ptr-quote-name">Dayana Marin</span>
+          <span class="ptr-quote-role">Cofounder at Adasight</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+{services.map((service, idx) => (
+  <section class={`ptr-service ${idx % 2 === 0 ? '' : 'ptr-service--alt'}`}>
+    <div class="ptr-service-inner">
+      <div class="ptr-service-num">
+        <span>{String(idx + 1).padStart(2, '0')}</span>
+      </div>
+      <div class="ptr-service-content">
+        <p class="label">{service.label}</p>
+        <h2 class="ptr-service-h2">{service.heading}</h2>
+        <p class="ptr-service-desc">{service.description}</p>
+      </div>
+    </div>
+  </section>
+))}
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="ptr-testimonials">
+  <div class="ptr-testimonials-inner">
+    <p class="label">// Testimonials</p>
+    <h2 class="section-h2">We've helped 100+ teams use Growth Analytics to scale</h2>
+    <div class="ptr-testimonials-grid">
+      <div class="ptr-testimonial-card">
+        <div class="ptr-tc-header">
+          <img src="/src/assets/testimonials/saira-tradezella.png" alt="Saira Ashraf" class="ptr-tc-photo" />
+          <div>
+            <div class="ptr-tc-name">Saira Ashraf</div>
+            <div class="ptr-tc-role">Head of Growth, Tradezella</div>
+          </div>
+        </div>
+        <p class="ptr-tc-quote">"Gregor's one of the best data consultants, especially with Amplitude. He's helped our team a lot, getting our app on track with the right data. He's great at getting Amplitude set up, and he's always in sync with our dev and product teams to make sure everything's tracked right."</p>
+      </div>
+      <div class="ptr-testimonial-card">
+        <div class="ptr-tc-header">
+          <img src="/src/assets/testimonials/analia-tonic.png" alt="Analia Ibargoyen" class="ptr-tc-photo" />
+          <div>
+            <div class="ptr-tc-name">Analia Ibargoyen</div>
+            <div class="ptr-tc-role">Head of Product, Tonic</div>
+          </div>
+        </div>
+        <p class="ptr-tc-quote">"I absolutely love the observations and knowledge sharing from Adasight's team. It's exactly the kind of insights we've been looking to understand from our onboarding and activation! Specifically, I love how you're correlating data, deriving potential causes, and also describing the charts. Immensely helpful."</p>
+      </div>
+      <div class="ptr-testimonial-card">
+        <div class="ptr-tc-header">
+          <img src="/src/assets/testimonials/stephanie-gravystack.png" alt="Stephanie McDaniel" class="ptr-tc-photo" />
+          <div>
+            <div class="ptr-tc-name">Stephanie McDaniel</div>
+            <div class="ptr-tc-role">COO, GravyStack</div>
+          </div>
+        </div>
+        <p class="ptr-tc-quote">"Their vast knowledge, ability to adapt proven frameworks and willingness to go above and beyond make them a top choice to power the growth of our Gravystack app. Through insights and changes in our onboarding that improve activation. You have been a joy to work with."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+<section class="ptr-final-cta">
+  <div class="ptr-final-cta-inner">
+    <p class="label">// Get in touch!</p>
+    <h2 class="section-h2">{ctaHeading}</h2>
+    <p class="section-sub">{ctaDescription}</p>
+    <a href={calLink} class="btn-primary">Book a Free Call</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ EXTRA SLOT ═══════════════════ -->
+<slot />
+
+</Base>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     PARTNER PAGE — HERO
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ptr-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(66, 100, 209, 0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .ptr-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .ptr-hero-inner {
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ptr-hero-h1 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(38px, 5.5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .ptr-hero-desc {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     TRUSTED-BY LOGOS
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-logos-section {
+    background: var(--bg2);
+    padding: 40px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+    text-align: center;
+  }
+
+  .ptr-logos-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .ptr-logo-track {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .ptr-logo-strip {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    width: max-content;
+    animation: ptrScrollLeft 50s linear infinite;
+  }
+
+  .ptr-logo-strip img {
+    height: 36px;
+    width: auto;
+    opacity: 0.45;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ptr-logo-strip img:hover {
+    opacity: 0.75;
+  }
+
+  @keyframes ptrScrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PILLARS
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-pillars {
+    padding: 100px 40px;
+  }
+
+  .ptr-pillars-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .ptr-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .ptr-pillar-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 36px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .ptr-pillar-card:hover {
+    border-color: var(--border);
+    transform: translateY(-3px);
+  }
+
+  .ptr-pillar-card h3 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .ptr-pillar-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     VALUE PROPOSITION
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-value {
+    padding: 100px 40px 60px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .ptr-value-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .ptr-value-inner .section-sub {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     QUOTE
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-quote-section {
+    padding: 80px 40px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .ptr-quote-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .ptr-quote {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.4;
+    color: var(--cyan);
+    margin-bottom: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    padding: 0;
+  }
+
+  .ptr-quote-text {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+
+  .ptr-quote-authors {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  .ptr-quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ptr-quote-name {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .ptr-quote-role {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SERVICE BLOCKS
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-service {
+    padding: 100px 40px;
+  }
+
+  .ptr-service--alt {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .ptr-service-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .ptr-service-num span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 48px;
+    font-weight: 600;
+    color: rgba(108, 226, 255, 0.15);
+    line-height: 1;
+  }
+
+  .ptr-service-content {
+    flex: 1;
+  }
+
+  .ptr-service-h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+
+  .ptr-service-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-testimonials {
+    padding: 100px 40px;
+  }
+
+  .ptr-testimonials-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .ptr-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .ptr-testimonial-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 32px;
+    transition: border-color 0.25s;
+  }
+
+  .ptr-testimonial-card:hover {
+    border-color: var(--border);
+  }
+
+  .ptr-tc-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .ptr-tc-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .ptr-tc-name {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .ptr-tc-role {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  .ptr-tc-quote {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════════ */
+  .ptr-final-cta {
+    padding: 100px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    text-align: center;
+  }
+
+  .ptr-final-cta-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .ptr-final-cta-inner .section-h2 {
+    max-width: 600px;
+    margin: 0 auto 18px;
+  }
+
+  .ptr-final-cta-inner .section-sub {
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 960px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .ptr-hero {
+      padding: 120px 24px 64px;
+      min-height: auto;
+    }
+
+    .ptr-pillars,
+    .ptr-value,
+    .ptr-quote-section,
+    .ptr-service,
+    .ptr-testimonials,
+    .ptr-final-cta {
+      padding: 80px 24px;
+    }
+
+    .ptr-pillars-grid,
+    .ptr-testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ptr-service-inner {
+      gap: 40px;
+    }
+
+    .ptr-quote-authors {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE — 580px
+     ═══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 580px) {
+    .ptr-hero {
+      padding: 100px 20px 48px;
+    }
+
+    .ptr-hero-h1 {
+      letter-spacing: -1.5px;
+    }
+
+    .ptr-hero-desc {
+      font-size: 16px;
+    }
+
+    .ptr-pillars,
+    .ptr-value,
+    .ptr-quote-section,
+    .ptr-service,
+    .ptr-testimonials,
+    .ptr-final-cta {
+      padding: 64px 20px;
+    }
+
+    .ptr-pillars-grid,
+    .ptr-testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ptr-service-inner {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .ptr-service-num span {
+      font-size: 36px;
+    }
+
+    .ptr-logo-strip img {
+      height: 28px;
+    }
+
+    .ptr-logos-section {
+      padding: 28px 0;
+    }
+  }
+</style>

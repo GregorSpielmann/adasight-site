@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Web & App Measurement",
+    description: "Google Analytics 4 unifies web and app data into a single event-based model. Track user journeys across platforms and understand the complete picture of how people interact with your product.",
+  },
+  {
+    title: "Marketing Attribution & ROI",
+    description: "Connect your marketing spend to real business outcomes. GA4's attribution models and integration with Google Ads help you understand which channels drive conversions and optimize your budget accordingly.",
+  },
+  {
+    title: "Predictive & AI-Powered Insights",
+    description: "Leverage GA4's machine learning capabilities to predict churn, forecast revenue, and surface anomalies automatically. Stay ahead of trends with AI-driven insights that highlight what matters most.",
+  },
+];
+
+const services = [
+  {
+    label: "// Measurement Strategy",
+    heading: "Define what matters and measure it right",
+    description: "We help you design a measurement framework that connects GA4 events to your business KPIs. From enhanced ecommerce to custom dimensions, we ensure your implementation captures the data that drives decisions.",
+  },
+  {
+    label: "// Implementation & Migration",
+    heading: "Set up GA4 properly or migrate from UA",
+    description: "Whether you are setting up GA4 for the first time or migrating from Universal Analytics, we handle the end-to-end implementation. GTM configuration, data streams, cross-domain tracking, and server-side tagging — done right the first time.",
+  },
+  {
+    label: "// Reporting & Dashboards",
+    heading: "Turn GA4 data into executive-ready insights",
+    description: "GA4's reporting interface can be challenging to navigate. We build custom explorations, Looker Studio dashboards, and automated reports that give your team clear, actionable insights without the complexity.",
+  },
+  {
+    label: "// BigQuery & Advanced Analysis",
+    heading: "Unlock the full power of your raw data",
+    description: "GA4's BigQuery export opens up a world of advanced analysis. We help you build data pipelines, run cohort analyses, and create custom attribution models that go far beyond what's possible in the GA4 interface alone.",
+  },
+];
+---
+
+<PartnerPage
+  title="Google Analytics Consulting — Adasight"
+  metaDescription="Get expert Google Analytics 4 consulting from Adasight. From GA4 setup and migration to advanced BigQuery analysis, we help you turn web analytics into growth strategy."
+  partnerName="Google Analytics"
+  heroLabel="// Partner — Google Analytics"
+  heroHeading="Web Analytics Done Right"
+  heroDescription="Google Analytics 4 is the foundation of web and app measurement for millions of businesses. Get the most out of GA4 with proper implementation, clear reporting, and advanced analysis that connects your marketing data to real business outcomes."
+  pillars={pillars}
+  valueHeading="Get the full value out of Google Analytics"
+  valueDescription="Whether you need a GA4 setup, migration from Universal Analytics, or advanced BigQuery analysis, Adasight's team of senior analytics experts will help you build a measurement system that drives confident decisions."
+  services={services}
+  ctaHeading="Adasight + Google Analytics"
+  ctaDescription="Adasight is your go-to partner for growth, specializing in analytics for product, and marketing strategy. We provide companies with top-class frameworks to thrive."
+/>
