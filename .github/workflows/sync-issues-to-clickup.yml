@@ -1,0 +1,90 @@
+name: Sync GitHub Issues to ClickUp
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled, closed, reopened]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Map status from labels/state
+        id: status
+        run: |
+          STATE="${{ github.event.issue.state }}"
+          LABELS="${{ join(github.event.issue.labels.*.name, ',') }}"
+
+          if [ "$STATE" = "closed" ]; then
+            echo "status=complete" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "approved"; then
+            echo "status=approved" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "staging"; then
+            echo "status=in progress" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "in-progress"; then
+            echo "status=in progress" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "ready"; then
+            echo "status=open" >> $GITHUB_OUTPUT
+          elif echo "$LABELS" | grep -q "blocked"; then
+            echo "status=blocked" >> $GITHUB_OUTPUT
+          else
+            echo "status=proposed" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Search for existing ClickUp task
+        id: search
+        run: |
+          RESPONSE=$(curl -s -X GET \
+            "https://api.clickup.com/api/v2/list/900401552760/task?custom_fields=%5B%5D" \
+            -H "Authorization: ${{ secrets.CLICKUP_API_KEY }}" \
+            -H "Content-Type: application/json")
+
+          ISSUE_URL="${{ github.event.issue.html_url }}"
+          TASK_ID=$(echo "$RESPONSE" | python3 -c "
+          import sys, json
+          data = json.load(sys.stdin)
+          tasks = data.get('tasks', [])
+          for t in tasks:
+            desc = t.get('description', '') or ''
+            if '$ISSUE_URL' in desc:
+              print(t['id'])
+              break
+          " 2>/dev/null || echo "")
+
+          echo "task_id=$TASK_ID" >> $GITHUB_OUTPUT
+
+      - name: Create ClickUp task
+        if: steps.search.outputs.task_id == ''
+        run: |
+          TITLE="${{ github.event.issue.title }}"
+          ISSUE_URL="${{ github.event.issue.html_url }}"
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          BODY=$(echo "${{ github.event.issue.body }}" | head -c 2000)
+          STATUS="${{ steps.status.outputs.status }}"
+
+          curl -s -X POST \
+            "https://api.clickup.com/api/v2/list/900401552760/task" \
+            -H "Authorization: ${{ secrets.CLICKUP_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"name\": \"[GH #${ISSUE_NUMBER}] ${TITLE}\",
+              \"description\": \"Mirrored from GitHub Issue: ${ISSUE_URL}\n\n${BODY}\",
+              \"status\": \"${STATUS}\",
+              \"tags\": [\"github\", \"website\"]
+            }"
+
+      - name: Update existing ClickUp task
+        if: steps.search.outputs.task_id != ''
+        run: |
+          TASK_ID="${{ steps.search.outputs.task_id }}"
+          TITLE="${{ github.event.issue.title }}"
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          STATUS="${{ steps.status.outputs.status }}"
+
+          curl -s -X PUT \
+            "https://api.clickup.com/api/v2/task/${TASK_ID}" \
+            -H "Authorization: ${{ secrets.CLICKUP_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"name\": \"[GH #${ISSUE_NUMBER}] ${TITLE}\",
+              \"status\": \"${STATUS}\"
+            }"
