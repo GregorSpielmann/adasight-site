@@ -20,6 +20,10 @@ const {
 const siteUrl = Astro.site ?? new URL("https://adasight.com");
 const canonicalURL = new URL(canonicalPath ?? Astro.url.pathname, siteUrl);
 const ogImage = new URL(image, siteUrl).href;
+
+// Block indexing on staging domains — only adasight.com should be indexed
+const host = Astro.url.hostname;
+const noIndex = host !== 'www.adasight.com' && host !== 'adasight.com';
 ---
 
 <!DOCTYPE html>
@@ -56,6 +60,7 @@ const ogImage = new URL(image, siteUrl).href;
   <link rel="apple-touch-icon" href="/webclip.png" />
 
   <title>{title}</title>
+  {noIndex && <meta name="robots" content="noindex, nofollow" />}
   <slot name="head" />
 </head>
 <body>
