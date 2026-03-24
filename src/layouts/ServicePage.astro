@@ -12,6 +12,7 @@ export interface Props {
   outcomes: string[];
   team: string;
   slug: string;
+  faq?: { q: string; a: string }[];
 }
 
 const {
@@ -25,7 +26,18 @@ const {
   outcomes,
   team,
   slug,
+  faq,
 } = Astro.props;
+
+const faqSchema = faq && faq.length > 0 ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": { "@type": "Answer", "text": a },
+  })),
+}) : null;
 
 const calLink = 'https://cal.com/gregor.spielmann/30min';
 
@@ -54,6 +66,9 @@ function renderMarkdown(md: string): string {
 ---
 
 <Base title={`${title} — Adasight`} description={tagline}>
+{faqSchema && (
+  <script slot="head" type="application/ld+json" set:html={faqSchema} />
+)}
 
 <!-- HERO -->
 <section class="svc-hero">
@@ -127,6 +142,24 @@ function renderMarkdown(md: string): string {
     <div class="svc-prose" set:html={renderMarkdown(team)} />
   </div>
 </section>
+
+<!-- FAQ -->
+{faq && faq.length > 0 && (
+  <section class="svc-section svc-section--alt">
+    <div class="svc-section-inner">
+      <p class="label">// FAQ</p>
+      <h2 class="section-h2">Frequently asked questions</h2>
+      <div class="svc-faq-list">
+        {faq.map(({ q, a }) => (
+          <details class="svc-faq-item">
+            <summary class="svc-faq-q">{q}</summary>
+            <p class="svc-faq-a">{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <!-- CTA -->
 <section class="svc-cta">
@@ -370,6 +403,64 @@ function renderMarkdown(md: string): string {
     border-radius: 50%;
     background: var(--cyan);
     opacity: 0.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     FAQ
+     ═══════════════════════════════════════════════════════════════════ */
+  .svc-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .svc-faq-item {
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .svc-faq-item[open] {
+    border-color: rgba(66, 100, 209, 0.35);
+  }
+
+  .svc-faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    line-height: 1.5;
+  }
+
+  .svc-faq-q::-webkit-details-marker { display: none; }
+
+  .svc-faq-q::after {
+    content: '+';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    color: var(--cyan);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .svc-faq-item[open] .svc-faq-q::after {
+    content: '−';
+  }
+
+  .svc-faq-a {
+    padding: 0 24px 20px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin: 0;
   }
 
   /* ═══════════════════════════════════════════════════════════════════

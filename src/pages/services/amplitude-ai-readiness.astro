@@ -61,4 +61,30 @@ import ServicePage from '../../layouts/ServicePage.astro';
 - Kickoff session at project start
 - AI Enablement Workshop (45 min)
 - Async Slack support with less than 24-hour response time`}
+  faq={[
+    {
+      q: "What is Amplitude AI and why isn't it working for my team?",
+      a: "Amplitude AI is a set of features — including Ask Amplitude, Chart GPT, and AI Context — that let you query your analytics in plain language. It breaks down when your underlying event data is poorly structured, inconsistently named, or missing key properties. The AI can only work with what it's given. If your Data Health Score is below 80%, the outputs will be generic or wrong.",
+    },
+    {
+      q: "What is a good Amplitude Data Health Score?",
+      a: "Amplitude recommends a Data Health Score of 80% or above for reliable AI outputs. Below that threshold, events lack the properties, descriptions, or taxonomy consistency that Amplitude AI needs to generate accurate answers. Our engagement targets 80%+ as a baseline outcome.",
+    },
+    {
+      q: "What's the difference between the Coaching Tier and the Hands-On Tier?",
+      a: "The Coaching Tier (4 sessions) is guidance-led — we review your setup, train your team, and advise on what to fix. The Hands-On Tier (4 weeks) is execution-led — we do the work alongside you: auditing events, configuring AI Context, rebuilding dashboards, and training the team. If your team has bandwidth to implement, coaching works. If you want it done fast and right, hands-on is the better fit.",
+    },
+    {
+      q: "Do I need to already be using Amplitude?",
+      a: "Yes. This engagement is specifically for teams that have Amplitude set up but aren't getting value from its AI features. If you're evaluating Amplitude or just getting started, we'd recommend our Amplitude Data Audit first.",
+    },
+    {
+      q: "How long does the engagement take?",
+      a: "The Coaching Tier runs across 4 sessions, typically 2–4 weeks depending on your team's schedule. The Hands-On Tier is a structured 4-week engagement with defined deliverables each week.",
+    },
+    {
+      q: "What does 'AI Context' mean in Amplitude?",
+      a: "AI Context is Amplitude's feature that lets you add plain-language descriptions to your events, properties, and dashboards. It's how you tell Amplitude AI what your data actually means. Without it configured properly, the AI has no semantic layer to work from — which is one of the most common reasons teams get useless answers.",
+    },
+  ]}
 />
