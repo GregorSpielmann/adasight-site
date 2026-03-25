@@ -1,0 +1,196 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
+
+const values = [
+  {
+    title: 'Data should drive decisions',
+    description: 'We believe every growth decision deserves evidence. We help companies build the analytics infrastructure and culture to make data-driven decisions the norm, not the exception.',
+  },
+  {
+    title: 'Expertise over headcount',
+    description: 'We operate as a senior-only team. Every engagement is led by practitioners who have built and scaled analytics systems at companies like Amplitude, Booking.com, Meta, and Canva.',
+  },
+  {
+    title: 'Outcomes, not outputs',
+    description: 'We measure our success by the impact we create for clients — not the number of dashboards delivered. Our work is done when your team can measure, analyse, and experiment independently.',
+  },
+];
+
+const team = [
+  {
+    name: 'Dayana Marin',
+    role: 'Co-founder & CEO',
+    bio: 'Formerly at Booking.com Growth & User Acquisition. Dayana leads Adasight\'s strategy and client partnerships, with deep expertise in growth analytics and data-driven marketing.',
+    photo: '/src/assets/team/dayana-marin.png',
+  },
+  {
+    name: 'Gregor Spielmann',
+    role: 'Co-founder & COO',
+    bio: 'Formerly at Amplitude and Optimizely. Gregor leads Adasight\'s sales and operations, with 10+ years specialising in product analytics, A/B testing, and growth experimentation.',
+    photo: '/src/assets/team/gregor-spielmann.png',
+  },
+];
+---
+
+<Base title="Who We Are — Adasight" metaDescription="Meet the Adasight team. Senior analytics and experimentation experts helping startups and scale-ups build data-driven growth systems.">
+  <!-- Hero -->
+  <section class="wwa-hero">
+    <div class="wwa-hero__inner">
+      <p class="wwa-hero__label">// Who We Are</p>
+      <h1 class="wwa-hero__heading">Senior analytics experts.<br/>Built for ambitious growth teams.</h1>
+      <p class="wwa-hero__body">Adasight is a boutique analytics and experimentation consultancy. We work with startups and scale-ups to build the data infrastructure, analytical capability, and experimentation culture they need to grow with confidence.</p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="wwa-values">
+    <div class="wwa-values__inner">
+      <h2 class="wwa-values__heading">What we believe</h2>
+      <div class="wwa-values__grid">
+        {values.map(v => (
+          <div class="wwa-value-card">
+            <h3 class="wwa-value-card__title">{v.title}</h3>
+            <p class="wwa-value-card__body">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="wwa-team">
+    <div class="wwa-team__inner">
+      <h2 class="wwa-team__heading">The founding team</h2>
+      <div class="wwa-team__grid">
+        {team.map(member => (
+          <div class="wwa-team-card">
+            <img src={member.photo} alt={member.name} class="wwa-team-card__photo" />
+            <h3 class="wwa-team-card__name">{member.name}</h3>
+            <p class="wwa-team-card__role">{member.role}</p>
+            <p class="wwa-team-card__bio">{member.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wwa-cta">
+    <div class="wwa-cta__inner">
+      <h2 class="wwa-cta__heading">Want to work together?</h2>
+      <p class="wwa-cta__body">Book a 30-minute discovery call to discuss your analytics challenges and how Adasight can help.</p>
+      <a href={calLink} class="wwa-cta__btn" target="_blank" rel="noopener">Let's Talk</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .wwa-hero {
+    background: #0d0d1a;
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .wwa-hero__inner { max-width: 720px; margin: 0 auto; }
+  .wwa-hero__label {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 1rem;
+  }
+  .wwa-hero__heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  .wwa-hero__body {
+    font-size: 1.125rem;
+    color: #9ca3af;
+    line-height: 1.7;
+  }
+
+  .wwa-values { padding: 5rem 1.5rem; background: #0a0a14; }
+  .wwa-values__inner { max-width: 1100px; margin: 0 auto; }
+  .wwa-values__heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  .wwa-values__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .wwa-value-card {
+    background: #13131f;
+    border: 1px solid #1e1e2e;
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .wwa-value-card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+  .wwa-value-card__body { color: #9ca3af; line-height: 1.65; font-size: 0.95rem; }
+
+  .wwa-team { padding: 5rem 1.5rem; background: #0d0d1a; }
+  .wwa-team__inner { max-width: 900px; margin: 0 auto; }
+  .wwa-team__heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  .wwa-team__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .wwa-team-card {
+    background: #13131f;
+    border: 1px solid #1e1e2e;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .wwa-team-card__photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .wwa-team-card__name { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+  .wwa-team-card__role { font-size: 0.85rem; color: #a78bfa; margin-bottom: 0.75rem; }
+  .wwa-team-card__bio { color: #9ca3af; font-size: 0.9rem; line-height: 1.6; }
+
+  .wwa-cta {
+    background: #6c3ce1;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+  .wwa-cta__inner { max-width: 600px; margin: 0 auto; }
+  .wwa-cta__heading { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+  .wwa-cta__body { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; }
+  .wwa-cta__btn {
+    display: inline-block;
+    background: #fff;
+    color: #6c3ce1;
+    font-weight: 700;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+  .wwa-cta__btn:hover { opacity: 0.9; }
+</style>

@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    { "source": "/case-studies",        "destination": "/success-stories",         "permanent": true },
+    { "source": "/case-studies/:slug",  "destination": "/success-stories/:slug",   "permanent": true },
+
+    { "source": "/partner",             "destination": "/partners",                 "permanent": true },
+    { "source": "/partner/:slug",       "destination": "/partners/:slug",           "permanent": true },
+
+    { "source": "/expertise/analytics-consulting",   "destination": "/services",    "permanent": true },
+    { "source": "/expertise/experimentation",        "destination": "/services",    "permanent": true },
+    { "source": "/expertise/ai-agents-for-analytics","destination": "/services",    "permanent": true },
+
+    { "source": "/amplitude-audit-checklist",              "destination": "/resources/amplitude-audit-checklist",              "permanent": true },
+    { "source": "/amplitude-experimentation-playbook",     "destination": "/resources/amplitude-experimentation-playbook",     "permanent": true },
+    { "source": "/amplitude-guides-surveys-playbook",      "destination": "/resources/amplitude-guides-surveys-playbook",      "permanent": true },
+    { "source": "/experiment-design-template",             "destination": "/resources/experiment-design-template",             "permanent": true },
+    { "source": "/google-analytics-audit",                 "destination": "/resources/google-analytics-audit",                 "permanent": true },
+    { "source": "/growth-model-template-b2b",              "destination": "/resources/growth-model-template-b2b",              "permanent": true },
+    { "source": "/growth-model-template-subscription",     "destination": "/resources/growth-model-template-subscription",     "permanent": true },
+    { "source": "/growthbook-starting-guide",              "destination": "/resources/growthbook-starting-guide",              "permanent": true },
+    { "source": "/utm-generation-sheet",                   "destination": "/resources/utm-generation-sheet",                   "permanent": true }
+  ]
+}

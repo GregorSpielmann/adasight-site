@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Event-Based Analytics at Scale",
+    description: "Mixpanel's event-driven model gives you granular visibility into every user action. Track custom events, build funnels, and analyze retention with a platform built for high-velocity product teams.",
+  },
+  {
+    title: "Powerful Segmentation & Cohorts",
+    description: "Slice your data by any combination of user properties and behaviors. Build cohorts based on actions, identify power users, and understand what separates users who convert from those who don't.",
+  },
+  {
+    title: "Self-Serve Insights for Product Teams",
+    description: "Mixpanel is designed for non-technical stakeholders. Your product managers, marketers, and growth leads can answer their own data questions without waiting on engineering — accelerating decisions across the business.",
+  },
+];
+
+const services = [
+  {
+    label: "// Data Strategy",
+    heading: "Build a tracking plan that drives growth",
+    description: "We help you design a Mixpanel tracking plan aligned to your growth model. From event taxonomy and naming conventions to user identity and super properties, we lay the foundation for analytics you can trust.",
+  },
+  {
+    label: "// Implementation",
+    heading: "Get Mixpanel running the right way, fast",
+    description: "A poorly implemented Mixpanel setup leads to dirty data and unreliable insights. We handle end-to-end implementation across your web, mobile, and backend, ensuring clean data flows from day one.",
+  },
+  {
+    label: "// Analytics & Insights",
+    heading: "Turn Mixpanel data into decisions",
+    description: "We build the reports, funnels, and dashboards your team actually uses. From activation and retention analysis to revenue attribution, we connect Mixpanel data to the outcomes that matter for your business.",
+  },
+  {
+    label: "// Experimentation",
+    heading: "Test and iterate with confidence",
+    description: "Pair Mixpanel's analytics with a structured experimentation practice. We design experiment frameworks, define success metrics in Mixpanel, and help you build a culture of evidence-based product development.",
+  },
+];
+---
+
+<PartnerPage
+  title="Mixpanel Analytics Partner — Adasight"
+  metaDescription="Get the most out of Mixpanel with Adasight's expert consulting. From implementation to advanced analytics and experimentation, we help you turn Mixpanel data into growth."
+  partnerName="Mixpanel"
+  heroLabel="// Partner — Mixpanel"
+  heroHeading="Product Analytics Built for Growth Teams"
+  heroDescription="Mixpanel is the leading event-based product analytics platform. It gives growth and product teams the visibility to understand user behavior, diagnose drop-off, and make data-driven decisions — without relying on engineering for every query."
+  pillars={pillars}
+  valueHeading="Get the full value out of Mixpanel"
+  valueDescription="Whether you need a complete Mixpanel implementation, advanced analytics support, or an experimentation strategy, Adasight's team of senior analytics experts will extend your capabilities and turn your product data into growth."
+  services={services}
+  ctaHeading="Adasight + Mixpanel"
+  ctaDescription="Adasight is your go-to partner for growth, specialising in analytics for product and marketing strategy. We provide companies with top-class frameworks to measure, analyse, and experiment their way to sustainable growth."
+/>

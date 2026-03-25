@@ -1,0 +1,56 @@
+---
+import PartnerPage from '../../layouts/PartnerPage.astro';
+
+const pillars = [
+  {
+    title: "Single Source of Truth for Customer Data",
+    description: "Segment collects events once and routes them to every tool in your stack — analytics, marketing, CRM, data warehouse. One implementation replaces dozens of fragmented tracking scripts.",
+  },
+  {
+    title: "Clean, Consistent Data Everywhere",
+    description: "With Segment as your data layer, every downstream tool receives the same clean, validated event stream. No more discrepancies between your analytics, ad platforms, and CRM.",
+  },
+  {
+    title: "Scalable Data Infrastructure",
+    description: "Segment grows with you — from startup to enterprise. Whether you're routing data to Amplitude, BigQuery, or Braze, Segment's composable architecture ensures your data infrastructure stays maintainable as your stack evolves.",
+  },
+];
+
+const services = [
+  {
+    label: "// Data Strategy",
+    heading: "Design your customer data architecture",
+    description: "We help you define a Segment tracking plan that serves every team in your organisation. From event naming conventions to identity resolution and user properties, we build a data foundation that scales.",
+  },
+  {
+    label: "// Implementation",
+    heading: "Implement Segment across your full stack",
+    description: "A Segment implementation touches web, mobile, server, and every downstream destination. We handle the end-to-end setup — Sources, Destinations, Functions, and Protocols — so your data pipeline is reliable from day one.",
+  },
+  {
+    label: "// Data Quality & Governance",
+    heading: "Keep your data clean as you scale",
+    description: "As your product evolves, data quality degrades without governance. We implement Segment Protocols to enforce your tracking plan, alert on violations, and ensure your downstream tools always receive trustworthy data.",
+  },
+  {
+    label: "// Analytics & Activation",
+    heading: "Connect your data layer to growth outcomes",
+    description: "Segment is the foundation — we help you build on top of it. From connecting Segment to your analytics stack and data warehouse, to activating customer data in marketing and CRM tools, we turn your infrastructure into a growth engine.",
+  },
+];
+---
+
+<PartnerPage
+  title="Segment CDP Partner — Adasight"
+  metaDescription="Get the most out of Segment with Adasight's expert consulting. From CDP implementation to data governance and analytics activation, we help you build a customer data foundation you can trust."
+  partnerName="Segment"
+  heroLabel="// Partner — Segment"
+  heroHeading="The Customer Data Platform That Powers Your Stack"
+  heroDescription="Segment is the industry-leading Customer Data Platform. It collects, cleans, and routes your customer data to every tool in your stack — giving you a single source of truth that powers analytics, marketing, and product decisions at scale."
+  pillars={pillars}
+  valueHeading="Get the full value out of Segment"
+  valueDescription="Whether you need a complete Segment implementation, data governance, or activation across your marketing and analytics stack, Adasight's team of senior data experts will help you build infrastructure that scales with your business."
+  services={services}
+  ctaHeading="Adasight + Segment"
+  ctaDescription="Adasight is your go-to partner for growth, specialising in customer data infrastructure and analytics strategy. We help companies build the data foundation they need to measure, understand, and grow."
+/>
