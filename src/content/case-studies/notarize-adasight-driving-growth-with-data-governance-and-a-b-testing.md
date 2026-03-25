@@ -2,6 +2,7 @@
 company: "Notarize"
 industry: "LegalTech"
 tag: "Experimentation"
+logo: "/assets/logos/clients-full/notarize.png"
 description: "How Adasight helped Notarize achieve a 15% revenue increase in 9 months through data governance, experimentation, and growth modeling."
 challenge: "Notarize had fragmented data pipelines creating inconsistencies across GA4, advertising platforms, and Klaviyo, no structured experimentation, and teams lacked transparency into growth metrics."
 solution: "Adasight implemented data governance with Segment, GA4, and Klaviyo integration, ran UX-driven A/B tests using LaunchDarkly, and developed growth models with real-time tracking dashboards."
@@ -11,6 +12,7 @@ results:
   - "A/B test doubled document upload conversion on landing pages"
   - "Multivariate test improved session-to-user conversion by over 10%"
 testimonialQuote: "Adasight has been an incredible partner for Notarize! They helped us clean up our data, build a growth model that clarified our goals, and navigate LaunchDarkly for seamless experimentation."
+testimonialHeadshot: "/assets/testimonials/phil-motto-notarize.png"
 testimonialAuthor: "Phil Motto"
 testimonialRole: "Head of Growth, Notarize"
 ---

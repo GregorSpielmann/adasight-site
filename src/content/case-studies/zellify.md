@@ -2,6 +2,8 @@
 company: "Zellify"
 industry: "SaaS"
 tag: "Product Analytics"
+thumbnail: "/assets/case-studies/thumb-zellify.png"
+logo: "/assets/logos/clients-full/zellify.png"
 description: "How Zellify established their first analytics framework with PostHog before launch to ensure they were collecting the right data from day one."
 challenge: "Zellify needed to establish their first analytics framework prior to launch, including clear product success metrics, a measurement plan tracking the full user funnel, and foundational dashboards for post-launch iteration."
 solution: "Adasight mapped the user journey, developed a KPI tree aligned with activation, engagement, and monetization, created and validated a PostHog tracking plan, and built real-time dashboards."

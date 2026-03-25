@@ -2,6 +2,8 @@
 company: "SyncCar"
 industry: "Marketplace"
 tag: "Analytics"
+thumbnail: "/assets/case-studies/thumb-synccar.png"
+logo: "/assets/logos/clients-full/synccar.png"
 description: "How SyncCar rebuilt Amplitude from the ground up to achieve a 100% data quality score and deliver accurate KPIs for their two-sided marketplace."
 challenge: "SyncCar's Amplitude setup lacked structure and alignment to product goals, with no clear visibility into conversion and engagement metrics for Guests or Hosts, inconsistent events, and scattered reporting."
 solution: "Adasight audited the existing configuration, defined KPIs for both user segments, documented user journeys, created a comprehensive tracking plan, guided implementation, and built custom dashboards."
@@ -11,6 +13,7 @@ results:
   - "Full visibility into core product metrics for guests and hosts"
   - "Empowered internal team through enablement and education"
 testimonialQuote: "We couldn't be happier with Oleg and the Adasight team's work. The results exceeded our expectations, and we now have the clarity we need to drive growth across both sides of our marketplace."
+testimonialHeadshot: "/assets/testimonials/nikos-drandakis-synccar.png"
 testimonialAuthor: "Nikos Drandakis"
 testimonialRole: "CEO & Founder, SyncCar"
 ---

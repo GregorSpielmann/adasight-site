@@ -4,6 +4,7 @@ description: "A comprehensive beginner guide that simplifies event tracking conc
 type: "playbook"
 category: "Data"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-event-tracking-playbook.png"
 ---
 
 Want to understand how users interact with your product and make better business decisions? This playbook breaks down event tracking into clear, actionable steps with industry-specific examples.

@@ -14,6 +14,7 @@ export interface Props {
   testimonialQuote?: string;
   testimonialAuthor?: string;
   testimonialRole?: string;
+  testimonialHeadshot?: string;
   logo?: string;
 }
 
@@ -30,6 +31,7 @@ const {
   testimonialQuote,
   testimonialAuthor,
   testimonialRole,
+  testimonialHeadshot,
   logo,
 } = Astro.props;
 ---
@@ -91,8 +93,13 @@ const {
           <p class="cs-quote-text">{testimonialQuote}</p>
           {(testimonialAuthor || testimonialRole) && (
             <footer class="cs-quote-footer">
-              {testimonialAuthor && <span class="cs-quote-author">{testimonialAuthor}</span>}
-              {testimonialRole && <span class="cs-quote-role">{testimonialRole}</span>}
+              {testimonialHeadshot && (
+                <img src={testimonialHeadshot} alt={testimonialAuthor ?? ''} class="cs-quote-headshot" />
+              )}
+              <div>
+                {testimonialAuthor && <span class="cs-quote-author">{testimonialAuthor}</span>}
+                {testimonialRole && <span class="cs-quote-role">{testimonialRole}</span>}
+              </div>
             </footer>
           )}
         </blockquote>
@@ -287,14 +294,25 @@ const {
   }
   .cs-quote-footer {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+  .cs-quote-headshot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--border);
   }
   .cs-quote-author {
+    display: block;
     font-weight: 700;
     font-size: 15px;
   }
   .cs-quote-role {
+    display: block;
     font-size: 13px;
     color: var(--text-muted);
   }

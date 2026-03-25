@@ -2,6 +2,8 @@
 company: "MightyScout"
 industry: "SaaS"
 tag: "Product Analytics"
+thumbnail: "/assets/case-studies/thumb-mightyscout.png"
+logo: "/assets/logos/clients-full/mightyscout.png"
 description: "How MightyScout built their first analytics framework from scratch with PostHog, mapping 30+ events across the full user lifecycle."
 challenge: "MightyScout lacked formal product analytics, preventing the team from answering critical questions about user navigation, onboarding correlation with activation, trial drop-offs, and feature utilization."
 solution: "Adasight designed and implemented a comprehensive analytics foundation with a KPI framework across five growth levers, full user journey mapping, and a detailed PostHog tracking plan with 30+ events."

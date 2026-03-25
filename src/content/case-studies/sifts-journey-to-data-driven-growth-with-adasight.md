@@ -2,6 +2,7 @@
 company: "Sift"
 industry: "SaaS"
 tag: "Analytics"
+logo: "/assets/logos/clients-full/sift.png"
 description: "How Sift transitioned from intuition-driven decisions to a data-driven culture with Amplitude deployment and team enablement."
 challenge: "Sift had disconnected analytics tools lacking reliability, data overload without actionable insights, and growth hindered by intuition-driven decision-making."
 solution: "Adasight assessed the existing stack, deployed Amplitude with integrated data sources, built custom dashboards for activation, retention, and feature engagement, and conducted training to build data literacy."
@@ -10,6 +11,7 @@ results:
   - "Identification of retention-driving features for product prioritization"
   - "Transition to data-driven culture enabling confident decision-making"
 testimonialQuote: "His knowledge is vast, but he has an incredible ability to break things down in a clear, digestible way."
+testimonialHeadshot: "/assets/testimonials/kristina-smeadly-elite-competitor.png"
 testimonialAuthor: "Nick Duncan"
 testimonialRole: "Chief of Staff, Sift"
 ---

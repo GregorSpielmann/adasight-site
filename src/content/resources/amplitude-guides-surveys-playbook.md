@@ -4,6 +4,7 @@ description: "A practical reference guide for setting up and managing in-app exp
 type: "playbook"
 category: "Product"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-amplitude-data-maturity.png"
 ---
 
 A hands-on playbook for building in-app experiences that drive feature adoption, reduce support costs, and deliver personalized content to your users.

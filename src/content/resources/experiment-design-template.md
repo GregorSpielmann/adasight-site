@@ -4,6 +4,7 @@ description: "A structured framework for running A/B tests with greater confiden
 type: "template"
 category: "Experimentation"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-experiment-design-template.png"
 ---
 
 Stop wasting time on inconclusive tests. This template provides a systematic approach to experiment planning and execution that delivers reliable, actionable results.

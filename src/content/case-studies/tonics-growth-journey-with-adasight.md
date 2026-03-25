@@ -2,6 +2,7 @@
 company: "Tonic"
 industry: "Music Education"
 tag: "Product Analytics"
+logo: "/assets/logos/clients-full/tonic.png"
 description: "How Tonic strengthened user engagement and retention with a data integrity audit, growth states model, and refined KPIs across Segment, Amplitude, and Braze."
 challenge: "Tonic faced a critical growth phase requiring new insights, with data not effectively utilized for decisions, no clear KPIs, difficulty identifying growth drivers and bottlenecks, and limited understanding of user behavior."
 solution: "Adasight conducted a data integrity audit across Segment, Amplitude, and Braze, refined key growth metrics, analyzed user behavior, implemented the Duolingo Growth States Model, and performed a tech stack audit."
@@ -11,6 +12,7 @@ results:
   - "Solid growth path established in the music education sector"
   - "Implemented Duolingo Growth States Model for user segmentation"
 testimonialQuote: "I absolutely love the observations and knowledge sharing from Adasight's team. It's exactly the kind of insights we've been looking for!"
+testimonialHeadshot: "/assets/testimonials/analia-ibargoyen-tonic.png"
 testimonialAuthor: "Analia Ibargoyen"
 testimonialRole: "Head of Product, Tonic"
 ---

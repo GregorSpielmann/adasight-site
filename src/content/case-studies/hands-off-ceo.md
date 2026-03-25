@@ -2,6 +2,8 @@
 company: "Hands-Off CEO"
 industry: "Business Coaching"
 tag: "Marketing Analytics"
+thumbnail: "/assets/case-studies/thumb-handsoff-ceo.png"
+logo: "/assets/logos/clients-full/handsoff-ceo.png"
 description: "How Hands-Off CEO gained full marketing funnel transparency with GA4 and Looker to finally read their data with confidence."
 challenge: "Hands-Off CEO lacked integrated analytics to measure marketing ROI and lead quality, with outdated Google Analytics tracking, limited visibility into which channels drive conversions, and no centralized dashboard."
 solution: "Adasight implemented a complete GA4 event structure, defined clear KPIs, created a comprehensive tracking plan, guided GA4 implementation, performed validation and QA, and built an interactive Looker dashboard."

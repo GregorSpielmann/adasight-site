@@ -4,6 +4,7 @@ description: "A plug-and-play spreadsheet for transactional e-commerce and marke
 type: "template"
 category: "Growth"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-growth-model-template.png"
 ---
 
 A ready-to-use growth model spreadsheet designed for e-commerce businesses that want to forecast revenue and simulate the compounding effects of performance improvements.

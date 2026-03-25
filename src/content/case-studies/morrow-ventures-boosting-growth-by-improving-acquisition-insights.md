@@ -2,6 +2,7 @@
 company: "Morrow Ventures"
 industry: "Venture Capital"
 tag: "Marketing Analytics"
+logo: "/assets/logos/clients-full/morrow-ventures.png"
 description: "How Morrow Ventures improved acquisition insights across their portfolio through centralized reporting, attribution modeling, and cross-channel optimization."
 challenge: "Morrow Ventures faced unclear drop-off rates in user flows, difficulty identifying and prioritizing marketing initiatives that drove quality traffic, and inefficiencies in campaign performance comparison and strategy monitoring."
 solution: "Adasight implemented a five-step approach: data audit and consolidation, user experience analysis, campaign analysis and ROI evaluation, attribution modeling, and ongoing monitoring and reporting."
@@ -12,6 +13,7 @@ results:
   - "Custom analytics dashboard enabling KPI measurement"
   - "Performance trend reports supporting optimization decisions"
 testimonialQuote: "After working with Adasight for multiple of our startups, they are our first choice as partner for Growth Analytics. We're impressed about their way of combining Growth Consulting and strategy with practical and hands-on concept realisation."
+testimonialHeadshot: "/assets/testimonials/robert-iken-morrow.png"
 testimonialAuthor: "Robert Iken"
 testimonialRole: "Cofounder and Managing Director, Morrow Ventures"
 ---

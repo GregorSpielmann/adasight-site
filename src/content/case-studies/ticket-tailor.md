@@ -2,6 +2,8 @@
 company: "Ticket Tailor"
 industry: "Event Tech"
 tag: "Analytics"
+thumbnail: "/assets/case-studies/thumb-ticket-tailor.png"
+logo: "/assets/logos/clients-full/ticket-tailor.png"
 description: "How Ticket Tailor went from limited analytics capability to data-informed decision-making with Amplitude, training four cross-functional teams."
 challenge: "Ticket Tailor's product and marketing teams lacked visibility into user interactions, couldn't identify impactful features, had no in-product attribution system, and the internal team was inexperienced with analytics tools."
 solution: "Adasight implemented a five-phase approach: discovery and KPI definition, tracking plan creation, implementation support, team training and enablement, and custom dashboard creation."
@@ -12,6 +14,7 @@ results:
   - "Custom dashboards for conversion analysis, feature adoption, and engagement"
   - "Analytics embedded in weekly decision-making rituals"
 testimonialQuote: "Working with Adasight gave us exactly what we needed to level up our analytics. Their team helped us audit our stack, cut through the noise, and build dashboards we rely on every day to make smarter decisions. The weekly support kept us on track, and now we feel fully equipped to own and grow our data in-house."
+testimonialHeadshot: "/assets/testimonials/tom-clarke-ticket-tailor.png"
 testimonialAuthor: "Tom Clarke"
 testimonialRole: "Director of Product, Ticket Tailor"
 ---

@@ -4,6 +4,7 @@ description: "A practical step-by-step guide to planning, configuring, and analy
 type: "playbook"
 category: "Experimentation"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-amplitude-experimentation-playbook.png"
 ---
 
 The definitive guide to running experiments with Amplitude, from your first hypothesis to rolling out winning variants at scale.

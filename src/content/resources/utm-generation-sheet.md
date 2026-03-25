@@ -4,6 +4,7 @@ description: "A standardized template for creating consistent, error-free UTM ta
 type: "template"
 category: "Marketing"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-utm-generation-sheet.png"
 ---
 
 Stop creating messy or unreliable campaign URLs that skew your analytics data. This template standardizes UTM tagging across your entire marketing team.

@@ -16,6 +16,7 @@ export interface Props {
   title: string;
   metaDescription: string;
   partnerName: string;
+  partnerLogo?: string;
   heroLabel: string;
   heroHeading: string;
   heroDescription: string;
@@ -31,6 +32,7 @@ const {
   title,
   metaDescription,
   partnerName,
+  partnerLogo,
   heroLabel,
   heroHeading,
   heroDescription,
@@ -45,9 +47,10 @@ const {
 const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
 
 const logos = [
-  'notarize', 'prewave', 'complete-sleep', 'tradezella', 'sift', 'bywit',
-  'tonic', 'templa', 'candis', 'personio', 'responsescribe', 'gravystack',
-  'morrow', 'navlin', 'betdex', 'healthplans', 'rutter',
+  'africhange', 'betdex', 'cleardigital', 'ebrands', 'elite-competitor',
+  'handsoff-ceo', 'healthplans', 'mightyscout', 'morrow-ventures',
+  'notarize', 'output', 'prewave', 'redirect-health', 'sift', 'synccar',
+  'ticket-tailor', 'tonic', 'unravel', 'wickey', 'zellify',
 ];
 ---
 
@@ -57,6 +60,11 @@ const logos = [
 <section class="ptr-hero">
   <div class="grid-bg"></div>
   <div class="ptr-hero-inner">
+    {partnerLogo && (
+      <div class="ptr-partner-logo-wrap">
+        <img src={partnerLogo} alt={`${partnerName} logo`} class="ptr-partner-logo" />
+      </div>
+    )}
     <p class="label">{heroLabel}</p>
     <h1 class="ptr-hero-h1">{heroHeading}</h1>
     <p class="ptr-hero-desc">{heroDescription}</p>
@@ -70,10 +78,10 @@ const logos = [
   <div class="ptr-logo-track">
     <div class="ptr-logo-strip">
       {logos.map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
       {logos.map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
     </div>
   </div>
@@ -148,7 +156,7 @@ const logos = [
     <div class="ptr-testimonials-grid">
       <div class="ptr-testimonial-card">
         <div class="ptr-tc-header">
-          <img src="/src/assets/testimonials/saira-tradezella.png" alt="Saira Ashraf" class="ptr-tc-photo" />
+          <img src="/assets/testimonials/saira-ashraf-tradezella.png" alt="Saira Ashraf" class="ptr-tc-photo" />
           <div>
             <div class="ptr-tc-name">Saira Ashraf</div>
             <div class="ptr-tc-role">Head of Growth, Tradezella</div>
@@ -158,7 +166,7 @@ const logos = [
       </div>
       <div class="ptr-testimonial-card">
         <div class="ptr-tc-header">
-          <img src="/src/assets/testimonials/analia-tonic.png" alt="Analia Ibargoyen" class="ptr-tc-photo" />
+          <img src="/assets/testimonials/analia-ibargoyen-tonic.png" alt="Analia Ibargoyen" class="ptr-tc-photo" />
           <div>
             <div class="ptr-tc-name">Analia Ibargoyen</div>
             <div class="ptr-tc-role">Head of Product, Tonic</div>
@@ -168,7 +176,7 @@ const logos = [
       </div>
       <div class="ptr-testimonial-card">
         <div class="ptr-tc-header">
-          <img src="/src/assets/testimonials/stephanie-gravystack.png" alt="Stephanie McDaniel" class="ptr-tc-photo" />
+          <img src="/assets/testimonials/stephanie-mcdaniel-gravvy.png" alt="Stephanie McDaniel" class="ptr-tc-photo" />
           <div>
             <div class="ptr-tc-name">Stephanie McDaniel</div>
             <div class="ptr-tc-role">COO, GravyStack</div>
@@ -236,6 +244,17 @@ const logos = [
     max-width: 800px;
     position: relative;
     z-index: 1;
+  }
+
+  .ptr-partner-logo-wrap {
+    margin-bottom: 28px;
+  }
+
+  .ptr-partner-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
   }
 
   .ptr-hero-h1 {

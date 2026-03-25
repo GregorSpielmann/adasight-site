@@ -4,6 +4,7 @@ description: "Get personalized AI-powered marketing operations recommendations. 
 type: "custom-gpt"
 category: "Marketing"
 downloadUrl: "https://automation.adasight.com/"
+image: "/assets/resources/thumb-product-led-vs-data-informed.png"
 ---
 
 An interactive AI-powered assessment tool that evaluates your current marketing operations setup and provides personalized recommendations for improvement.

@@ -2,6 +2,7 @@
 company: "Prewave"
 industry: "Supply Chain"
 tag: "Product Analytics"
+logo: "/assets/logos/clients-full/prewave.png"
 description: "How Prewave strengthened analytics capabilities for their AI-powered supply chain platform with a cohesive framework, UX feedback, and custom dashboards."
 challenge: "Prewave needed to strengthen analytics for their growing platform, facing unclear success milestones, underutilized datasets and technology, platform usability limitations, and lack of a cohesive analytics framework."
 solution: "Adasight scoped problems aligned with business objectives, defined use cases and KPI frameworks, evaluated existing tech and datasets, provided UX/UI feedback, implemented tracking plans, and built custom dashboards."

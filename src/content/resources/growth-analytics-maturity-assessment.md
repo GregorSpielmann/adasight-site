@@ -4,6 +4,7 @@ description: "Comprehensive analytics maturity assessment with AI-powered insigh
 type: "custom-gpt"
 category: "Data"
 downloadUrl: "https://growthaudit.adasight.com/"
+image: "/assets/resources/thumb-amplitude-data-maturity.png"
 ---
 
 An interactive self-assessment tool that evaluates your organization's analytics maturity and provides AI-powered recommendations for improvement.

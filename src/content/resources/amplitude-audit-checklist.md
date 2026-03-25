@@ -4,6 +4,7 @@ description: "A comprehensive audit tool used by over 50 startups to review and 
 type: "checklist"
 category: "Data"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-amplitude-audit-checklist.png"
 ---
 
 A structured checklist designed to help teams audit their Amplitude implementation and ensure reliable, accurate analytics that drive confident decisions.

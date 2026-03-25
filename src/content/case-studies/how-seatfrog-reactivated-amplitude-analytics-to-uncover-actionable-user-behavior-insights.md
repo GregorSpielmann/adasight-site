@@ -2,6 +2,8 @@
 company: "Seatfrog"
 industry: "Travel Tech"
 tag: "Product Analytics"
+thumbnail: "/assets/case-studies/thumb-seatfrog.png"
+logo: "/assets/logos/clients-full/seatfron.png"
 description: "How Seatfrog reactivated their dormant Amplitude implementation to answer 19 high-impact business questions in four weeks."
 challenge: "Seatfrog had Amplitude installed but wasn't leveraging it. Cross-platform complexity with separate iOS and Android projects, no structured behavioral segmentation, and 19 critical business questions remained unanswered."
 solution: "Adasight executed a focused two-sprint engagement covering deep product discovery, exploratory data analysis, dashboard development, platform comparison analysis, behavioral segmentation, and knowledge transfer."

@@ -2,6 +2,7 @@
 company: "Complete Sleep"
 industry: "Healthcare"
 tag: "Analytics"
+thumbnail: "/assets/case-studies/thumb-complete-sleep.png"
 description: "How Adasight enabled 90% KPI visibility in Amplitude for Complete Sleep through a comprehensive audit, tracking restructure, and team training."
 challenge: "Complete Sleep had unstructured Amplitude data creating inconsistent reporting, limited internal expertise with the platform, and disconnected marketing attribution preventing teams from linking activities to outcomes."
 solution: "Adasight implemented a four-phase approach: Amplitude audit, tracking plan structuring, enablement and training, and marketing analytics consulting."

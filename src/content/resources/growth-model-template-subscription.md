@@ -4,6 +4,7 @@ description: "A ready-to-use spreadsheet template for B2C subscription businesse
 type: "template"
 category: "Growth"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-growth-model-template.png"
 ---
 
 A subscription-focused growth model with pre-filled formulas for acquisition funnels, billing projections, churn modeling, and lifetime value tracking.

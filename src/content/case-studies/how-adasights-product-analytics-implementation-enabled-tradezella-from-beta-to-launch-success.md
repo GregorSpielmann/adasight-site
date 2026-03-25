@@ -12,6 +12,7 @@ results:
   - "Enabled paid campaign optimization identifying high-engagement channels"
   - "Confident public launch with data-driven user roadmap"
 testimonialQuote: "Working with Adasight has been a game-changer for Tradezella. They helped us set up the right analytics tools and strategies, transforming our approach from mere traffic generation to attracting high-value users."
+testimonialHeadshot: "/assets/testimonials/saira-ashraf-tradezella.png"
 testimonialAuthor: "Saira Ahraf"
 testimonialRole: "Head of Growth, Tradezella"
 ---

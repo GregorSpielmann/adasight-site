@@ -4,6 +4,7 @@ description: "Generate intelligent tech stack recommendations with personalized 
 type: "custom-gpt"
 category: "Data"
 downloadUrl: "https://martechbuilder.adasight.com/"
+image: "/assets/resources/thumb-product-led-vs-data-informed.png"
 ---
 
 An AI-powered tool that generates customized technology stack recommendations including architecture diagrams and implementation roadmaps tailored to your specific business requirements.

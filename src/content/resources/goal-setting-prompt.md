@@ -4,6 +4,7 @@ description: "An AI prompt template for structuring and documenting growth goals
 type: "prompt"
 category: "Growth"
 downloadUrl: "https://docs.google.com/document/d/1a9w8NWY8ayml77iXiLVDC4u6CRDnyre-qEzZEQU6xEE/edit?tab=t.0"
+image: "/assets/resources/thumb-goal-setting-prompt.png"
 ---
 
 A ready-to-use AI prompt template that helps teams structure their goal-setting process and create actionable growth plans.

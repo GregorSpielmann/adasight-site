@@ -2,6 +2,8 @@
 company: "Wickey"
 industry: "E-Commerce"
 tag: "Analytics"
+thumbnail: "/assets/case-studies/thumb-wickey.png"
+logo: "/assets/logos/clients-full/wickey.png"
 description: "How Wickey unified their analytics by replacing GA4-to-Amplitude data piping with native Amplitude tracking and experimentation-ready infrastructure."
 challenge: "Wickey had a partial tracking setup where GA4 events were being sent into Amplitude, creating inconsistent data and limited user behavior visibility with no defined funnels or KPIs."
 solution: "Adasight defined KPIs, mapped user journeys, created a comprehensive Amplitude tracking plan, guided implementation, validated events, and set up experimentation capabilities."

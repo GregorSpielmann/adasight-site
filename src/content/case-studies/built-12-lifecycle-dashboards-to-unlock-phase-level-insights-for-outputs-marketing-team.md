@@ -2,6 +2,8 @@
 company: "Output"
 industry: "SaaS"
 tag: "Lifecycle Analytics"
+thumbnail: "/assets/case-studies/thumb-output.png"
+logo: "/assets/logos/clients-full/output.png"
 description: "How Adasight built 100+ charts across 12+ dashboards to give Output's lifecycle marketing team unified phase-level visibility."
 challenge: "Output's Lifecycle team operated strategic programs across customer journey phases but lacked centralized visibility into performance, with data scattered across Amplitude, Looker, and Braze."
 solution: "Adasight scoped dashboard needs, audited data availability across platforms, built dashboards prioritizing Amplitude, integrated Braze with Amplitude, and validated data accuracy."

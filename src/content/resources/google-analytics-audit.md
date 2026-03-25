@@ -4,6 +4,7 @@ description: "A comprehensive spreadsheet tool to help teams set up Google Analy
 type: "template"
 category: "Data"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-google-analytics-audit.png"
 ---
 
 A customizable spreadsheet with guided workflows that helps you audit your GA4 setup and plan improvements without requiring deep technical expertise.

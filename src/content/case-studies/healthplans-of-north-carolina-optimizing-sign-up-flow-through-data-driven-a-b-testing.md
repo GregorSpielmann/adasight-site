@@ -2,6 +2,7 @@
 company: "HealthPlans of North Carolina"
 industry: "Health Insurance"
 tag: "Experimentation"
+logo: "/assets/logos/clients-full/healthplans.png"
 description: "How HealthPlans of North Carolina nearly doubled self-enrollment conversions from 9.41% to 19.1% through systematic A/B testing."
 challenge: "Users abandoned the self-enrollment process due to lack of clarity and trust, the team relied on assumptions rather than data, and they needed to increase conversions through systematic A/B testing."
 solution: "Adasight conducted a UX audit, developed hypotheses around building trust and simplifying the experience, and ran targeted A/B tests using Amplitude Analytics, Hypertune, and Heyflow."

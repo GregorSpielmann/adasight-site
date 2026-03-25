@@ -2,6 +2,8 @@
 company: "Unravel"
 industry: "SaaS"
 tag: "Experimentation"
+thumbnail: "/assets/case-studies/thumb-unravel.png"
+logo: "/assets/logos/clients-full/unravel.png"
 description: "How Unravel fast-tracked their Statsig setup with expert guidance to avoid weeks of trial-and-error learning."
 challenge: "Unravel needed to implement Statsig quickly and correctly but lacked internal expertise on SDK implementation, event tracking, and experimentation best practices."
 solution: "Adasight provided a focused two-week engagement including a rapid audit, live demo, detailed findings document, and comprehensive event audit."

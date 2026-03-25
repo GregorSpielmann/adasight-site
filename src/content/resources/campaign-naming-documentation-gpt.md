@@ -4,6 +4,7 @@ description: "A custom GPT that helps marketing teams create and maintain consis
 type: "custom-gpt"
 category: "Marketing"
 downloadUrl: "https://chatgpt.com/g/g-675efb7e33ec8191be55fb22bf83d3b3-campaign-naming-documentation-builder"
+image: "/assets/resources/thumb-campaign-naming-gpt.png"
 ---
 
 A custom ChatGPT that generates standardized campaign naming conventions and documentation, ensuring your marketing team maintains consistent naming across all platforms and campaigns.

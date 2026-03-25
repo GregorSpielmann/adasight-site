@@ -4,6 +4,7 @@ description: "A comprehensive playbook to help teams set up GrowthBook, optimize
 type: "playbook"
 category: "Experimentation"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-growthbook-guide.png"
 ---
 
 This playbook covers everything you need to get started with GrowthBook and scale your experimentation program.

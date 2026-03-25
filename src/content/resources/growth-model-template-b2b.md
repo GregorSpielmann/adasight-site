@@ -4,6 +4,7 @@ description: "A plug-and-play spreadsheet for B2B subscription businesses to mod
 type: "template"
 category: "Growth"
 downloadUrl: "https://www.adasight.com/thank-you-playbook"
+image: "/assets/resources/thumb-growth-model-template.png"
 ---
 
 A ready-to-use B2B growth forecasting tool that enables you to model revenue across the full customer lifecycle from acquisition through expansion and churn.
