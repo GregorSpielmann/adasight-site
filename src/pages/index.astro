@@ -3,12 +3,11 @@ import Base from '../layouts/Base.astro';
 import HomePageBottom from '../components/HomePageBottom.astro';
 
 const logos = [
-  'notarize', 'prewave', 'complete-sleep', 'tradezella', 'sift', 'bywit',
-  'tonic', 'templa', 'candis', 'personio', 'responsescribe', 'gravystack',
-  'morrow', 'navlin', 'betdex', 'healthplans', 'rutter', 'africhange',
-  'cleardigital', 'ebrands', 'glamoreworld', 'handsoffceo', 'inspiringvacation',
-  'jupusai', 'mightyscout', 'novo', 'output', 'redirecthealth', 'synccar',
-  'tickettailor', 'tillerhq', 'torahlive', 'ultraspeaking', 'wickey', 'zellify', 'zero',
+  'notarize', 'prewave', 'sift', 'tonic', 'betdex', 'healthplans', 'africhange',
+  'cleardigital', 'ebrands', 'glamoreworld', 'handsoff-ceo', 'inspiring-vacation',
+  'jupusai', 'mightyscout', 'novo', 'output', 'redirect-health', 'synccar',
+  'ticket-tailor', 'tiller-hq', 'torah-live', 'ultra-speaking', 'wickey',
+  'zellify', 'zero', 'morrow-ventures', 'unravel', 'elite-competitor', 'streaming-company',
 ];
 
 const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
@@ -47,20 +46,20 @@ const calLink = 'https://cal.com/gregor.spielmann/30min?overlayCalendar=true';
   <div class="logo-track">
     <div class="logo-strip logo-strip--left">
       {logos.map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
       {logos.map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
     </div>
   </div>
   <div class="logo-track">
     <div class="logo-strip logo-strip--right">
       {[...logos].reverse().map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
       {[...logos].reverse().map((name) => (
-        <img src={`/src/assets/clients/${name}.png`} alt={name} loading="lazy" />
+        <img src={`/assets/logos/clients-full/${name}.png`} alt={name} loading="lazy" />
       ))}
     </div>
   </div>
